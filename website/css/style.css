@@ -20,7 +20,7 @@ body{
     color: var(--darktext);
     font-family: 'Vollkorn', serif;
     font-size: 1.2rem;
-    line-height: 1.8;
+    line-height: 1.7;
 }
 h1{
     font-size: 2.2rem;
@@ -28,6 +28,7 @@ h1{
     color: var(--darkdough);
     margin-top: 20px;
     margin-bottom: 20px;
+    line-height: 1.2;
 }
 h2{
     font-size: 1.8rem;
@@ -35,6 +36,7 @@ h2{
     color: var(--tomato);
     margin-top: 15px;
     margin-bottom: 15px;
+    line-height: 1.2;
 }
 
 /* Layout **********************************************************/
@@ -52,7 +54,26 @@ h2{
     width: 80%;
     display: block;
     margin: auto;
+    padding-top: 25px;
+    padding-bottom: 30px;
 }
+div.twocolumn:has(img){
+    padding: 0 !important;
+    overflow: hidden;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+}
+.twocolumnfullsizeimage{
+    height: auto;
+    width: 100%;
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 50%;
+    transform: translateX(-50%)
+}
+
 
 a{
     text-decoration: none;
@@ -79,12 +100,16 @@ hr.headerdivider{
 /* Header *************************************************/
 .header{
     background-color: var(--tomato);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
     /*box-shadow: 1px 1px 5px 0px var(--gray);*/
     position: relative;
     top: 0;
     width: 100%;
     text-align: center;
     line-height: normal;
+    z-index: 9;
 }
 
 /* Logo *************************************************/
@@ -102,12 +127,13 @@ hr.headerdivider{
 /* Toolbar/Nav *************************************************/
 .toolbar{
     background-color: var(--tomato);
-    box-shadow: 0px 2px 5px 0px var(--gray);
+    box-shadow: 0px 0px 5px 0px black;
     position: sticky;
     top: 0;
     width: 100%;
     text-align: center;
     line-height: normal;
+    z-index: 8;
 }
 .nav{
     width: 100%;
@@ -210,7 +236,7 @@ svg.footerimage{
     body{
         text-align: center;
         font-size: 1.3rem;
-        line-height: 1.8;
+        line-height: 1.7;
     }
     
     hr.divider{
@@ -232,6 +258,14 @@ svg.footerimage{
         flex-grow: 1;
         flex-basis: 50%; /*50% for two in a row, 33% three in a row etc.*/
         flex-direction: column;
+    }
+    .twocolumnfullsizeimage{
+        height: 40vw;
+        width: auto;
+    }
+    
+    header{
+        height: 33vh;
     }
     
     hr.headerdivider{
@@ -269,6 +303,11 @@ svg.footerimage{
         margin: 0;
         color: var(--lighttext);
         font-size: 60px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
         /* float: left; /* Only for Bookingtool */
         
         /* To Do Desktop Version Header sowieso ganz anders und Bild einfügen … folgt */
