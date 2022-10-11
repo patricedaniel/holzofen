@@ -1,3 +1,12 @@
+<?php
+
+$content = file_get_contents("https://api.holzofenpizzawagen.ch/pizza/items/about_us");
+$decoded_json = json_decode($content, false);
+ 
+$title = $decoded_json->data[0]->title;
+$content = $decoded_json->data[0]->content;
+
+?>
 <!DOCTYPE html> 
 <html lang="de-CH">
     <head>
@@ -18,7 +27,7 @@
     </head>
     <body>
         <!-- Navigation bar -->
-        <header class="header" style="background-image: url('http://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizza_feuer_2.jpg');"> 
+        <header class="header" style="background-image: url('https://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizza_feuer_2.jpg');"> 
             <!-- Logo -->
             <a href="#" class="logo">Pizza</a>
             
@@ -38,7 +47,7 @@
                     <li class="naveldivider">|</li>
                     <li><a href="ueberuns.html" style="text-decoration: underline;">Über uns</a> </li>
                     <li class="naveldivider">|</li>
-                    <li><a href="http://anfrage.holzofenpizzawagen.ch">Reservierungsanfrage</a></li>
+                    <li><a href="https://anfrage.holzofenpizzawagen.ch">Reservierungsanfrage</a></li>
                     <li class="naveldivider">|</li>
                     <li><a href="#">Kontakt</a></li>
                 </ul>
@@ -47,9 +56,10 @@
         
         <div class="onecolumn">
             <h1>
-                Wir, der Holzofen und das Angebot
+                <?php echo $title;?>
             </h1>
             <p>
+            <?php echo $content;?>
                 Die nur mit <a href="/wiki/Oliven%C3%B6l" title="Olivenöl">Olivenöl</a> beträufelte, mit <a href="/wiki/Tomate" title="Tomate">Tomatenscheiben</a> und <a href="/wiki/Oregano" title="Oregano">Oregano</a> oder <a href="/wiki/Basilikum" title="Basilikum">Basilikum</a> belegte Pizza ist seit etwa der Mitte des 18. Jahrhunderts nachgewiesen, als die Tomate in <a href="/wiki/S%C3%BCditalien" title="Süditalien">Süditalien</a> populär wurde.
             </p>
         </div>
@@ -57,7 +67,7 @@
          <!-- 2 Columns -->
         <div class="columnwrapper">
             <div class="twocolumn">
-                <img class="twocolumnfullsizeimage" src="http://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizza_team_2.jpg" alt="mehr Informationen zum Bild" title="das wird angezeigt wenn man mit der Maus drüberfährt">
+                <img class="twocolumnfullsizeimage" src="https://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizza_team_2.jpg" alt="mehr Informationen zum Bild" title="das wird angezeigt wenn man mit der Maus drüberfährt">
             </div>
             <div class="twocolumn">
                 <h2>
