@@ -73,6 +73,16 @@ div.twocolumn:has(img){
     margin-left: 50%;
     transform: translateX(-50%)
 }
+.twocolumnportrait{
+    margin-top: 6rem !important;
+    margin-bottom: 6rem !important;
+    text-align: center;
+}
+.portraitimage{
+    width: 40%;
+    border-radius: 50%;
+    margin: 0 2% 0 2%;
+}
 
 
 a{
@@ -114,10 +124,22 @@ hr.headerdivider{
 
 /* Logo *************************************************/
 .logomobile{
-    display: inline-block;
+    display: block;
+    position: absolute;
     color: var(--lighttext);
+    text-decoration: none;
+    font-style: italic;
+    font-weight: 800;
     font-size: 60px;
     margin-right: 64px; /* minus the hamburger 24 and 20 padding */
+    top: 40px;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.logomobile img{
+    height: 74px;
+    display:block;
 }
 /* Desktoplogo hidden on mobile*/
 .logo{
@@ -263,6 +285,9 @@ svg.footerimage{
         height: 40vw;
         width: auto;
     }
+    .portraitimage{
+        width: 25%;
+    }
     
     header{
         height: 33vh;
@@ -303,13 +328,18 @@ svg.footerimage{
         margin: 0;
         color: var(--lighttext);
         font-size: 60px;
+        font-style: italic;
+        font-weight: 900;
+        text-decoration: none;
         position: absolute;
         top: 50%;
         left: 50%;
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
         /* float: left; /* Only for Bookingtool */
-        
-        /* To Do Desktop Version Header sowieso ganz anders und Bild einfügen … folgt */
+    }
+    .logo img{
+        height: 26vh;
+        margin-top: 10%;
     }
 }

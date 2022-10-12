@@ -1,22 +1,14 @@
 <?php
 
-$content = file_get_contents("https://api.holzofenpizzawagen.ch/pizza/items/about_us");
+$content = file_get_contents("https://api.holzofenpizzawagen.ch/pizza/items/home");
 $decoded_json = json_decode($content, false);
  
 $title = $decoded_json->data[0]->title;
-$intro = $decoded_json->data[0]->intro;
-$image1 = $decoded_json->data[0]->image1;
-$text1 = $decoded_json->data[0]->text1;
-$image2 = $decoded_json->data[0]->image2;
-$text2 = $decoded_json->data[0]->text2;
-$image3 = $decoded_json->data[0]->image3;
-$text3 = $decoded_json->data[0]->text3;
-$image4 = $decoded_json->data[0]->image4;
-$text4 = $decoded_json->data[0]->text4;
-$team1 = $decoded_json->data[0]->team1;
-$team2 = $decoded_json->data[0]->team2;
+$image = $decoded_json->data[0]->image;
+$content = $decoded_json->data[0]->content;
 
 ?>
+
 <!DOCTYPE html> 
 <html lang="de-CH">
     <head>
@@ -34,12 +26,12 @@ $team2 = $decoded_json->data[0]->team2;
         <!-- Scripts -->
         <!--<script src=“rsrc/scripts/meinScript.js“></script> -->
         
-        <title>über uns - Holzofenpizzawagen</title>
+        <title>Holzofenpizzawagen</title>
 
     </head>
     <body>
-        <!-- Navigation bar -->
-        <header class="header" style="background-image: url('https://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizza_feuer_2.jpg');"> 
+        <!-- Header and Navigation bar -->
+        <header class="header"> 
             <!-- Logo -->
             <a href="index.php" class="logo"><img src="https://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-logo-plain-lightdough.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist"></a> 
         </header> <!-- Muss ans Ende damit Hamburgermenü funktioniert -->
@@ -47,15 +39,16 @@ $team2 = $decoded_json->data[0]->team2;
         <div class="toolbar"> <!-- DIV muss weg damit Hamburgermenü funktioniert -->
             <!-- Logo for mobile integration in Toolbar -->
             <a href="index.php" class="logomobile"><img src="https://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-logo-plain-lightdough.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist"></a>
+            <hr class="divider headerdivider" />
             <!-- Hamburger icon -->
             <input class="side-menu" type="checkbox" id="side-menu"/>
             <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
             <!-- nav -->
             <nav class="nav">
                 <ul class="menu">
-                    <li><a href="index.php">Home</a></li>
+                    <li><a href="index.php" style="text-decoration: underline;">Home</a></li>
                     <li class="naveldivider">|</li>
-                    <li><a href="ueberuns.html" style="text-decoration: underline;">Über uns</a> </li>
+                    <li><a href="ueberuns.php">Über uns</a> </li>
                     <li class="naveldivider">|</li>
                     <li><a href="https://anfrage.holzofenpizzawagen.ch">Reservierungsanfrage</a></li>
                     <li class="naveldivider">|</li>
@@ -64,69 +57,35 @@ $team2 = $decoded_json->data[0]->team2;
             </nav>
         </div>
         
-        <div class="onecolumn">
-            <h1>
+        
+        
+        <!-- Main content -->
+        
+        <!-- Test 2 Spalten -->
+        <div class="columnwrapper">
+            <div class="twocolumn">
+                <h1>
+                  Holzofenpizzawagen
+                </h1>
+                <p>Eine Pizza, die heutigen Vorstellungen entspricht, soll erstmals am 11. Juni 1889 in Neapel vom Pizzaiolo Raffaele Esposito von der Pizzeria Brandi hergestellt worden sein, der beauftragt worden sein soll, König Umberto I. und seiner Frau Margherita eine Pizza zu servieren.</p>
+            </div>
+            <div class="twocolumn">
+                <h1>
+                  Holzofenpizzawagen
+                </h1>
+                <p>Eine Pizza, die heutigen Vorstellungen entspricht, soll erstmals am 11. Juni 1889 in Neapel vom Pizzaiolo Raffaele Esposito von der Pizzer  von der Pizzer  von der Pizzer  von der Pizzer  von der Pizzer  von der Pizzer  von der Pizzer  von der Pizzer  von der Pizzeria Brandi hergestellt worden sein, der beauftragt worden sein soll, König Umberto I. und seiner Frau Margherita eine Pizza zu servieren.</p>
+            </div>
+        </div>
+            
+            
+        <main class="onecolumn">
+            <article>
+                <h1>
                 <?php echo $title;?>
-            </h1>
-            <?php echo $intro;?>
-        </div>
-        
-         <!-- 2 Columns -->
-        <div class="columnwrapper">
-            <div class="twocolumn">
-                <img class="twocolumnfullsizeimage" src=<?php echo $image1;?> alt="Das Team, Rolf, Marisa, Markus und Daniela" title="Rolf, Marisa, Markus und Daniela">
-            </div>
-            <div class="twocolumn">
-                <?php echo $text1;?>
-            </div>
-        </div>
-        
-        <hr class="divider" />
-        
-        <!-- 2 Columns -->
-        <div class="columnwrapper">
-            <div class="twocolumn twocolumnportrait">
-                <?php echo $team1;?>
-            </div>
-            <div class="twocolumn twocolumnportrait">
-                <?php echo $team2;?>
-            </div>
-        </div>
-        
-        <hr class="divider" />
-        
-        <!-- 2 Columns -->
-        <div class="columnwrapper">
-            <div class="twocolumn">
-                <?php echo $text2;?>    
-            </div>
-            <div class="twocolumn">
-                <img class="twocolumnfullsizeimage" src=<?php echo $image2;?> alt="Pizzaiolo beim Pizzamachen" title="Unser Pizzaiolo">
-            </div>
-        </div>
-        
-        <!-- 2 Columns -->
-        <div class="columnwrapper">
-            <div class="twocolumn">
-                <img class="twocolumnfullsizeimage" src=<?php echo $image3;?> alt="Munitionswagen vor dem Umbau" title="Originaler Munitionswagen">
-            </div>
-            <div class="twocolumn">
-                <?php echo $text3;?>
-            </div>
-        </div>
-        
-        <!-- 2 Columns -->
-        <div class="columnwrapper">
-            <div class="twocolumn">
-                <?php echo $text4;?>
-            </div>
-            <div class="twocolumn">
-                <img class="twocolumnfullsizeimage" src=<?php echo $image4;?> alt="Umgebauter Pizzaofen" title="Umgebauter Pizzaofen">
-            </div>
-        </div>
-        
-    </body>
-    
+                </h1>
+                <?php echo $content;?>
+            </article>
+        </main>
         <hr class="divider footerdivider" />
         <footer>
             holzofenpizzawagen.ch<br />
@@ -140,4 +99,5 @@ $team2 = $decoded_json->data[0]->team2;
             <img src="Bildtitel.jpg" alt="mehr Informationen zum Bild" title="das wird angezeigt wenn man mit der Maus drüberfährt">
             -->
         </footer>
+    </body>
 </html>
