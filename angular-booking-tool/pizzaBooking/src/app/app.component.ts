@@ -11,7 +11,7 @@ import { BookingService } from './services/booking.service';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  step = 2;
+  step = 1;
   title = 'Unverbindliche Anfrage';
   subTitle = 'Details zum Anlass'
   booking = new Booking()
@@ -82,11 +82,15 @@ export class AppComponent {
       case 2:
         this.subTitle = 'Was brauchen sie für ihren Anlass?'
         break;
-
       case 3:
         this.subTitle = 'Wie erreichen wir Sie?'
+        break;
+      case 4:
+        this.subTitle = 'Vielen Dank für Ihre Anfrage'
         break;
     }
   }
 
 }
+
+

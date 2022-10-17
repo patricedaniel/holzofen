@@ -16,6 +16,7 @@ export class Booking {
     req_ofen: any
     req_personal: any
     req_belegt_durch: any
+    req_transport: boolean | undefined
     req_zutaten: any
     req_beilagen: any
     req_geschirr: any

@@ -17,6 +17,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 @NgModule({
@@ -35,6 +37,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle'
     MatIconModule,
     MatSliderModule,
     MatSlideToggleModule,
+    MatCheckboxModule,
+    MatRadioModule,
     FormsModule,
     BrowserAnimationsModule
   ],

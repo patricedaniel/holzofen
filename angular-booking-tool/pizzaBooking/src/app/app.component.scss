@@ -19,6 +19,13 @@ button.disabled-class {
     border-radius: 100%;
 }
 
+button a {
+    color: inherit;
+}
+button a:hover{
+    text-decoration: none;
+}
+
 mat-icon{
     margin: 0 10px 3px 0;
 }
@@ -34,6 +41,10 @@ mat-label{
 mat-slide-toggle {
     margin-bottom: 3rem;
 }
+mat-slide-toggle:has(+ .formtext) { 
+    margin-bottom: 1rem; 
+}
+
 
 .mat-input-element{
     font-size: 1.1rem !important;
@@ -41,6 +52,39 @@ mat-slide-toggle {
 
 .mat-slider-horizontal{
     width: 100%;
+    margin-left: -6px;
+}
+
+.inputNextToSlider{
+    width: 20%;
+    margin: 0 0 0 2%;
+}
+.inputNextToSlider>div{
+    text-align: center;
+}
+.sliderWithInput{
+    width: 78%;
+}
+
+.checkboxgroup{
+    margin-bottom: 3rem;
+    line-height: 1.5;
+    page-break-inside: avoid;
+}
+mat-checkbox{
+    font-size: 0.9rem;
+}
+
+mat-radio-group{
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 2;
+    page-break-inside: avoid;
+}
+mat-radio-button{
+    font-size: 0.9rem;
 }
 
 // about columns - stuff thats important for the responsive part //////////////////////////////////////////
