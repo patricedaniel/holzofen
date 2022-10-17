@@ -1,4 +1,84 @@
+
+// text //////////////////////////////////////////
+.inputtitle{
+    margin-bottom: 0;
+    font-size: 1.1rem;
+}
+
+.formtext{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 25px;
+}
+
+// material overwrite //////////////////////////////////////////
+// disabled calendar data in datepicker
 button.disabled-class {
-    background: rgb(0, 0, 0);
+    background: rgb(50, 50, 50);
     border-radius: 100%;
 }
+
+mat-icon{
+    margin: 0 10px 3px 0;
+}
+
+mat-label{
+    font-size: 1rem;
+}
+
+.mat-form-field{
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+mat-slide-toggle {
+    margin-bottom: 3rem;
+}
+
+.mat-input-element{
+    font-size: 1.1rem !important;
+}
+
+.mat-slider-horizontal{
+    width: 100%;
+}
+
+// about columns - stuff thats important for the responsive part //////////////////////////////////////////
+.headline{
+    width: 80%;
+    max-width: 1000px;
+    display: block;
+    margin: 3rem auto;
+}
+.formcolumnwrapper{
+    text-align: left;
+    width: 80%;
+    margin: auto;
+}
+.buttonwrapper {
+    padding: 2rem 0 3rem 0px;
+    text-align: center;
+}
+.buttonwrapper button {
+    margin: 0 20px 0 20px;
+}
+
+
+/* Make it responsive *************************************************/
+/**********************************************************************/
+/**********************************************************************/
+@media (min-width: 768px) {
+
+    .headline{
+        width: 60%;
+        max-width: 1000px;
+    }
+    .formcolumnwrapper{
+        column-count: 2;
+        column-gap: 3rem;
+        width: 60%;
+        max-width: 1000px;
+    }
+
+}
+

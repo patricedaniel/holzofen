@@ -16,6 +16,8 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'
+
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { MatSliderModule } from '@angular/material/slider';
     MatButtonModule,
     MatIconModule,
     MatSliderModule,
+    MatSlideToggleModule,
     FormsModule,
     BrowserAnimationsModule
   ],

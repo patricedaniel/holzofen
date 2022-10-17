@@ -1,0 +1,98 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+:root{
+    --white: #f8f8f8;
+    --black: #343434;
+    --gray: #898989;
+    --tomato: #B41900;
+    --lightdough: #E6D2B4;
+    --darkdough: #B48C5A;
+    --lighttext: #ffE9C9;
+    --darktext: #6E5435;
+
+} /* variables*/
+
+// define colors here: https://material.io/design/color/the-color-system.html#tools-for-picking-colors
+
+$pizzatomato-palette: (
+  50: #ffeaec,
+  100: #ffcbcc,
+  200: #f09890,
+  300: #e57065,
+  400: #ec513d,
+  500: #ef431c,
+  600: #e1381e,
+  700: #d02d18,
+  800: #c32510,
+  900: var(--tomato),
+  A100: #c2e4ff, // let's change the following if blue appears in the ui elements
+  A200: #addcff,
+  A400: #1f9eff,
+  A700: #00518f,
+  contrast: (
+    50: var(--darktext),
+    100: var(--darktext),
+    200: var(--darktext),
+    300: var(--darktext),
+    400: var(--darktext),
+    500: var(--lighttext),
+    600: var(--lighttext),
+    700: var(--lighttext),
+    800: var(--lighttext),
+    900: var(--lighttext),
+    A100: var(--darktext),
+    A200: var(--darktext),
+    A400: var(--lighttext),
+    A700: var(--lighttext),
+  )
+);
+
+$pizzadough-palette: (
+  50: #f5ede1,
+  100: var(--lightdough),
+  200: #d9b47d,
+  300: var(--darkdough),
+  400: #c78316,
+  500: #bf7000,
+  600: #bc6600,
+  700: #b75900,
+  800: #b04a00,
+  900: #a63100,
+  A100: #c2e4ff, // let's change the following if blue appears in the ui elements
+  A200: #addcff,
+  A400: #1f9eff,
+  A700: #00518f,
+  contrast: (
+    50: var(--darktext),
+    100: var(--darktext),
+    200: var(--darktext),
+    300: var(--darktext),
+    400: var(--darktext),
+    500: var(--lighttext),
+    600: var(--lighttext),
+    700: var(--lighttext),
+    800: var(--lighttext),
+    900: var(--lighttext),
+    A100: var(--darktext),
+    A200: var(--darktext),
+    A400: var(--lighttext),
+    A700: var(--lighttext),
+  )
+);
+
+/* $my-primary: mat.define-palette(mat.$indigo-palette, 900);
+$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400); */
+
+$my-primary: mat.define-palette($pizzatomato-palette, 900);
+$my-accent: mat.define-palette($pizzadough-palette, 100, 50, 200);
+
+$my-theme: mat.define-light-theme((
+ color: (
+   primary: $my-primary,
+   accent: $my-accent,
+ )
+));
+
+@include mat.all-component-themes($my-theme);

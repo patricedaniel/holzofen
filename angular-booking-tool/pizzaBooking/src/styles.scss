@@ -1,4 +1,352 @@
-/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files 
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+*/
+
+:root{
+    --white: #f8f8f8;
+    --black: #343434;
+    --gray: #898989;
+    --tomato: #B41900;
+    --lightdough: #E6D2B4;
+    --darkdough: #B48C5A;
+    --lighttext: #ffE9C9;
+    --darktext: #6E5435;
+
+} /* variables*/
+
+/* General and reset *************************************************/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    color: var(--darktext);
+    font-family: 'Vollkorn', serif;
+    font-size: 1.2rem;
+    line-height: 1.7;
+}
+h1{
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--darkdough);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+h2{
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--tomato);
+    margin-top: 15px;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+/* Layout **********************************************************/
+.onecolumn{
+    width: 80%;
+    max-width: 1000px;
+    display: block;
+    margin: 3rem auto;
+}
+
+.columnwrapper{
+    /*just for desktop important*/
+}
+.twocolumn{
+    width: 80%;
+    display: block;
+    margin: auto;
+    padding-top: 25px;
+    padding-bottom: 30px;
+}
+div.twocolumn:has(img){
+    padding: 0 !important;
+    overflow: hidden;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+}
+.twocolumnfullsizeimage{
+    height: auto;
+    width: 100%;
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 50%;
+    transform: translateX(-50%)
+}
+.twocolumnportrait{
+    margin-top: 6rem !important;
+    margin-bottom: 6rem !important;
+    text-align: center;
+}
+.portraitimage{
+    width: 40%;
+    border-radius: 50%;
+    margin: 0 2% 0 2%;
+}
+
+
+a{
+    text-decoration: none;
+    color: var(--tomato);
+}
+a:hover{
+    text-decoration: underline;
+}
+ul{
+    list-style: none;
+}
+
+hr.divider{
+    border-top: 0.5px solid var(--lightdough);
+    width: 80%;
+    max-width: 1150px;
+    display: block;
+    margin: auto;
+}
+hr.headerdivider{
+    display: none;
+}
+
+/* Header *************************************************/
+.header{
+    background-color: var(--tomato);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    /*box-shadow: 1px 1px 5px 0px var(--gray);*/
+    position: relative;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    line-height: normal;
+    z-index: 9;
+}
+
+/* Logo *************************************************/
+.logomobile{
+    display: block;
+    position: absolute;
+    color: var(--lighttext);
+    text-decoration: none;
+    font-style: italic;
+    font-weight: 800;
+    font-size: 60px;
+    margin-right: 64px; /* minus the hamburger 24 and 20 padding */
+    top: 40px;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.logomobile img{
+    height: 74px;
+    display:block;
+}
+/* Desktoplogo hidden on mobile*/
+.logo{
+    display: none;
+}
+
+/* Toolbar/Nav *************************************************/
+.toolbar{
+    background-color: var(--tomato);
+    box-shadow: 0px 0px 5px 0px black;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    line-height: normal;
+    z-index: 8;
+}
+.nav{
+    width: 100%;
+    height: 100%;
+    /*background-color: var(--tomato);*/
+    overflow: hidden;
+
+}
+.menu a{
+    display: block;
+    padding: 20px;
+    color: var(--lighttext);
+}
+.naveldivider{
+    display: none;
+    padding: 20px 0 20px 0;
+    color: var(--lighttext);
+}
+.nav{
+    max-height: 0;
+    transition: max-height .5s ease-out;
+}
+
+/* Menu Icon *************************************************/
+.hamb{
+    cursor: pointer;
+    float: left;
+    padding: 40px 20px;
+}/* Style label tag */
+
+.hamb-line {
+    background: var(--lighttext);
+    display: block;
+    height: 2px;
+    position: relative;
+    width: 24px;
+
+} /* Style span tag */
+
+.hamb-line::before,
+.hamb-line::after{
+    background: var(--lighttext);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+.hamb-line::before{
+    top: 5px;
+}
+.hamb-line::after{
+    top: -5px;
+}
+
+.side-menu {
+    display: none;
+} /* Hide checkbox */
+
+/* Toggle menu icon *************************************************/
+.side-menu:checked ~ nav{
+    max-height: 100% !important;
+}
+.side-menu:checked ~ .hamb .hamb-line {
+    background: transparent;
+}
+.side-menu:checked ~ .hamb .hamb-line::before {
+    transform: rotate(-45deg);
+    top:0;
+}
+.side-menu:checked ~ .hamb .hamb-line::after {
+    transform: rotate(45deg);
+    top:0;
+}
+
+/* Footer *************************************************/
+footer{
+    color: var(--darkdough);
+    margin: 3rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    text-align: center;
+}
+footer a{
+    color: var(--darkdough);
+}
+svg.footerimage{
+    display: block;
+    margin: 2rem auto 3rem auto;
+    width: 10rem;
+}
+
+
+/* Meke it responsive *************************************************/
+/**********************************************************************/
+/**********************************************************************/
+@media (min-width: 768px) {
+
+    body{
+        text-align: center;
+        font-size: 1.3rem;
+        line-height: 1.7;
+    }
+    
+    hr.divider{
+        width: 70%;
+    }
+    
+    .onecolumn{
+        width: 60%;
+    }    
+    .columnwrapper{
+        display: flex;
+        /*flex-wrap: wrap; /*allow wrapping items*/
+        flex-direction: row;
+        align-items: center;
+    }
+    .twocolumn{
+        padding: 5%;
+        overflow-wrap: anywhere;
+        flex-grow: 1;
+        flex-basis: 50%; /*50% for two in a row, 33% three in a row etc.*/
+        flex-direction: column;
+    }
+    .twocolumnfullsizeimage{
+        height: 40vw;
+        width: auto;
+    }
+    .portraitimage{
+        width: 25%;
+    }
+    
+    header{
+        height: 33vh;
+    }
+    
+    hr.headerdivider{
+        display: block;
+    }
+
+    .nav{
+        max-height: none;
+        top: 0;
+        position: relative;
+        width: fit-content;
+        display: block;
+        margin: auto;
+    }
+    .menu li{
+        float: left;
+    }
+    .menu a:hover{
+        background-color: transparent;
+    }
+    .naveldivider{
+        display: block;
+    }
+
+    .hamb{
+        display: none;
+    }
+    
+    .logomobile{
+        display: none;
+    }
+    
+    .logo{
+        display: block;
+        margin: 0;
+        color: var(--lighttext);
+        font-size: 60px;
+        font-style: italic;
+        font-weight: 900;
+        text-decoration: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        /* float: left; /* Only for Bookingtool */
+    }
+    .logo img{
+        height: 26vh;
+        margin-top: 10%;
+    }
+}

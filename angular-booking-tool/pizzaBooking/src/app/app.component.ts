@@ -11,11 +11,13 @@ import { BookingService } from './services/booking.service';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  step = 1;
+  step = 2;
   title = 'Unverbindliche Anfrage';
   subTitle = 'Details zum Anlass'
   booking = new Booking()
   bookedDates: Record<number, Array<number>> = {}
+  info_anzahl_erwachsene_zweitage: number | undefined
+  info_anzahl_kinder_zweitage: number | undefined
 
 
   dateFilter: MatCalendarCellClassFunction<Date> = (cellDate, view) => {
@@ -54,6 +56,11 @@ export class AppComponent {
         }
       }
     })
+  }
+
+  doublecustomers() {
+    this.info_anzahl_erwachsene_zweitage !== null && this.info_anzahl_erwachsene_zweitage !== undefined ? this.info_anzahl_erwachsene_zweitage*2 : null;
+    this.info_anzahl_kinder_zweitage !== null && this.info_anzahl_kinder_zweitage !== undefined ? this.info_anzahl_kinder_zweitage*2 : null;
   }
 
   previousStep() {
