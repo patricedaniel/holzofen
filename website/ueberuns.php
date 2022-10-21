@@ -39,14 +39,15 @@ $team2 = $decoded_json->data[0]->team2;
     </head>
     <body>
         <!-- Navigation bar -->
-        <header class="header" style="background-image: url('https://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizza_feuer_2.jpg');"> 
+        <header class="header"> 
             <!-- Logo -->
-            <a href="index.php" class="logo"><img src="https://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-logo-plain-lightdough.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist"></a> 
-        </header> <!-- Muss ans Ende damit Hamburgermenü funktioniert -->
+            <a href="index.php" class="logo"><img src="http://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-signet-lightdough_neg.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist"><br>Holzofenpizza</a> 
+        </header> 
         <!-- Toolbar -->
-        <div class="toolbar"> <!-- DIV muss weg damit Hamburgermenü funktioniert -->
+        <div class="toolbar"> 
             <!-- Logo for mobile integration in Toolbar -->
-            <a href="index.php" class="logomobile"><img src="https://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-logo-plain-lightdough.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist"></a>
+            <a href="index.php" class="logomobile"><img src="http://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-thumb-lightdough.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist">Holzofenpizza</a>
+            <hr class="divider headerdivider" />
             <!-- Hamburger icon -->
             <input class="side-menu" type="checkbox" id="side-menu"/>
             <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>

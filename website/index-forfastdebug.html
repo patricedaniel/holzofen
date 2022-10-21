@@ -1,17 +1,3 @@
-<?php
-
-$content = file_get_contents("https://api.holzofenpizzawagen.ch/pizza/items/home");
-$decoded_json = json_decode($content, false);
- 
-$icon1 = $decoded_json->data[0]->icon1;
-$content1 = $decoded_json->data[0]->content1;
-$icon2 = $decoded_json->data[0]->icon2;
-$content2 = $decoded_json->data[0]->content2;
-$icon3 = $decoded_json->data[0]->icon3;
-$content3 = $decoded_json->data[0]->content3;
-
-?>
-
 <!DOCTYPE html> 
 <html lang="de-CH">
     <head>
@@ -37,12 +23,12 @@ $content3 = $decoded_json->data[0]->content3;
         <header class="header" style="background-image: url('http://api.holzofenpizzawagen.ch/pizza/assets/header_holzofenpizza_pizzaiolo_2.jpg');"> 
             <!-- Logo -->
             <a href="index.php" class="logo"><img src="http://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-signet-lightdough_neg.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist"><br>Holzofenpizza</a> 
-        </header> 
+        </header> <!-- Muss ans Ende damit Hamburgermenü funktioniert -->
         <!-- Toolbar -->
         <div class="toolbar"> 
             <!-- Logo for mobile integration in Toolbar -->
             <a href="index.php" class="logomobile"><img src="http://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-thumb-lightdough.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist">Holzofenpizza</a>
-            <!-- <hr class="divider headerdivider" />-->
+            <hr class="divider headerdivider" />
             <!-- Hamburger icon -->
             <input class="side-menu" type="checkbox" id="side-menu"/>
             <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
@@ -63,39 +49,65 @@ $content3 = $decoded_json->data[0]->content3;
         
         
         <!-- Main content -->
-        <main class="onecolumn">
-             <div class="divider-with-icon">
-                <div class="iconwrapper">
-                    <img src=<?php echo $icon1;?> alt="Icon 2 Luftballone" title="Icon Feiern">
-                </div>
-                <div class="icondividerwrapper">
-                    <hr class="divider" />
-                </div> 
-            </div>
-            <?php echo $content1;?>
-            
-            <div class="divider-with-icon">
-                <div class="iconwrapper">
-                    <img src=<?php echo $icon2;?> alt="Icon Pizza" title="Icon Pizza">
-                </div>
-                <div class="icondividerwrapper">
-                    <hr class="divider" />
-                </div> 
-            </div>
-            <?php echo $content2;?>
-            
-            <div class="divider-with-icon">
-                <div class="iconwrapper">
-                    <img src=<?php echo $icon3;?> alt="Icon Kalender" title="Icon Reservierungsanfrage">
-                </div>
-                <div class="icondividerwrapper">
-                    <hr class="divider" />
-                </div> 
-            </div>
-            <?php echo $content3;?>
-            
-        </main>
         
+        <!-- Test 2 Spalten 
+        <div class="columnwrapper">
+            <div class="twocolumn">
+                <h1>
+                  Holzofenpizzawagen
+                </h1>
+                <p>Eine Pizza, die heutigen Vorstellungen entspricht, soll erstmals am 11. Juni 1889 in Neapel vom Pizzaiolo Raffaele Esposito von der Pizzeria Brandi hergestellt worden sein, der beauftragt worden sein soll, König Umberto I. und seiner Frau Margherita eine Pizza zu servieren.</p>
+            </div>
+            <div class="twocolumn">
+                <h1>
+                  Holzofenpizzawagen
+                </h1>
+                <p>Eine Pizza, die heutigen Vorstellungen entspricht, soll erstmals am 11. Juni 1889 in Neapel vom Pizzaiolo Raffaele Esposito von der Pizzer  von der Pizzer  von der Pizzer  von der Pizzer  von der Pizzer  von der Pizzer  von der Pizzer  von der Pizzer  von der Pizzeria Brandi hergestellt worden sein, der beauftragt worden sein soll, König Umberto I. und seiner Frau Margherita eine Pizza zu servieren.</p>
+            </div>
+        </div>-->
+            
+            
+        <main class="onecolumn">
+            <div class="divider-with-icon">
+                <div class="iconwrapper">
+                    <img src="http://api.holzofenpizzawagen.ch/pizza/assets/pizzaicon-ballone.svg" alt="Icon 2 Luftballone" title="Icon Feiern">
+                </div>
+                <div class="icondividerwrapper">
+                    <hr class="divider" />
+                </div>    
+            </div>
+            <h1>
+            <?php echo $title;?>Haben Sie was zu feiern?
+            </h1>
+            <?php echo $content;?>
+            sich jeder selber belegen und selbst entscheiden was er mag. Das Belegen der Pizza macht spass und regt zu Gesprächen mit den Kollegen an. Auf Wunsch übernehmen wir das Pizzamachen und Sie haben
+            <div class="divider-with-icon">
+                <div class="iconwrapper">
+                    <img src="http://api.holzofenpizzawagen.ch/pizza/assets/pizzaicon-pizza-1slice.svg" alt="Icon 2 Luftballone" title="Icon Feiern">
+                </div>
+                <div class="icondividerwrapper">
+                    <hr class="divider" />
+                </div>    
+            </div>
+            <h2>
+            <?php echo $title;?>Haben Sie was zu feiern?
+            </h2>
+            <?php echo $content;?>
+            sich jeder selber belegen und selbst entscheiden was er mag. Das Belegen der Pizza macht spass und regt zu Gesprächen mit den Kollegen an. Auf Wunsch übernehmen wir das Pizzamachen und Sie haben
+            <div class="divider-with-icon">
+                <div class="iconwrapper">
+                    <img src="http://api.holzofenpizzawagen.ch/pizza/assets/pizzaicon-ballone.svg" alt="Icon 2 Luftballone" title="Icon Feiern">
+                </div>
+                <div class="icondividerwrapper">
+                    <hr class="divider" />
+                </div>    
+            </div>
+            <h2>
+            <?php echo $title;?>Haben Sie was zu feiern?
+            </h2>
+            <?php echo $content;?>
+            sich jeder selber belegen und selbst entscheiden was er mag. Das Belegen der Pizza macht spass und regt zu Gesprächen mit den Kollegen an. Auf Wunsch übernehmen wir das Pizzamachen und Sie haben
+        </main>
         <hr class="divider footerdivider" />
         <footer>
             holzofenpizzawagen.ch<br />
