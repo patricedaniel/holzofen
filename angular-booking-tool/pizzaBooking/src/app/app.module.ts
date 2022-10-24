@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MAT_DATE_LOCALE} from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -42,7 +43,9 @@ import { MatRadioModule } from '@angular/material/radio';
     FormsModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'de-CH' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
