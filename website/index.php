@@ -34,14 +34,14 @@ $content3 = $decoded_json->data[0]->content3;
     </head>
     <body>
         <!-- Header and Navigation bar -->
-        <header class="header" style="background-image: url('http://api.holzofenpizzawagen.ch/pizza/assets/header_holzofenpizza_pizzaiolo_2.jpg');"> 
+        <header class="header startpage" style="background-image: url('http://api.holzofenpizzawagen.ch/pizza/assets/header_holzofenpizza_pizzaiolo_2.jpg');"> 
             <!-- Logo -->
-            <a href="index.php" class="logo"><img src="http://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-signet-lightdough_neg.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist"><br>Holzofenpizza</a> 
+            <a href="index.php" class="logo startpage"><img src="http://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-signet-lightdough_neg.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist"><br>Holzofenpizza</a> 
         </header> 
         <!-- Toolbar -->
-        <div class="toolbar"> 
-            <!-- Logo for mobile integration in Toolbar -->
-            <a href="index.php" class="logomobile"><img src="http://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-thumb-lightdough.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist">Holzofenpizza</a>
+        <div class="toolbar startpage"> 
+            <!-- Logo for mobile integration in Toolbar ((no used on startpage))
+            <a href="index.php" class="logomobile"><img src="http://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-thumb-lightdough.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist">Holzofenpizza</a>-->
             <!-- <hr class="divider headerdivider" />-->
             <!-- Hamburger icon -->
             <input class="side-menu" type="checkbox" id="side-menu"/>
@@ -55,7 +55,7 @@ $content3 = $decoded_json->data[0]->content3;
                     <li class="naveldivider">|</li>
                     <li><a href="https://anfrage.holzofenpizzawagen.ch">Reservierungsanfrage</a></li>
                     <li class="naveldivider">|</li>
-                    <li><a href="#">Kontakt</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
                 </ul>
             </nav>
         </div>

@@ -60,7 +60,7 @@ $team2 = $decoded_json->data[0]->team2;
                     <li class="naveldivider">|</li>
                     <li><a href="https://anfrage.holzofenpizzawagen.ch">Reservierungsanfrage</a></li>
                     <li class="naveldivider">|</li>
-                    <li><a href="#">Kontakt</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
                 </ul>
             </nav>
         </div>

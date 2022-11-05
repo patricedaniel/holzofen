@@ -250,6 +250,7 @@ a.logomobile:hover{
 /* Toggle menu icon *************************************************/
 .side-menu:checked ~ nav{
     max-height: 100% !important;
+    background: var(--tomato); /*because of startpagetoolbar transparent*/
 }
 .side-menu:checked ~ .hamb .hamb-line {
     background: transparent;
@@ -281,9 +282,107 @@ svg.footerimage{
 }
 
 
+/* Contact Form ********************************************************/
+/* NOT FOR THE ANGULAR BOOKING TOOL ********************************************************/
+input,
+button {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+form.material.form-content {
+    display: grid;
+    width: 64rem;
+    max-width: 100%;
+}
+.inputfield {
+    display: grid;
+    overflow: visible;
+    margin: 0 2rem;
+    position: relative;
+}
+.inputfield label {
+    color: var(--darktext);
+    font-size: 1.1rem;
+    position: absolute;
+    top: 1rem;
+}
+.inputfield input {
+    background-image: linear-gradient(to bottom, transparent calc(100% - 0.125rem), #ccc 0.125rem);
+    font-family: sans-serif;
+    border: none;
+    outline: none;
+    padding: 3rem 0 0.5rem 0;
+}
+.material-textarea{
+    background-image: linear-gradient(to bottom, transparent calc(100% - 0.125rem), #ccc 0.125rem);
+    margin: 3rem 0;
+    color: var(--darktext);
+    font-family: sans-serif;
+    font-size: inherit;
+    line-height: inherit;
+    border: none;
+    line-height: 1.2;
+    height: 10rem;
+}
+.inputfield.hint {
+    color: #999;
+    font-size: 1.75rem;
+    font-weight: 500;
+    margin: 1rem 0;
+}
+button.material {
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.325rem 0.125rem #0003;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0;
+    padding: 0.5rem 1.5rem;
+}
+button.material.flat {
+    background: none;
+    box-shadow: none;
+}
+button.material.primary {
+    background-color: var(--tomato);
+    font-family: sans-serif;
+    color: var(--lighttext);
+}
+
+
+
 /* Meke it responsive *************************************************/
 /**********************************************************************/
 /**********************************************************************/
+
+/*Only Startpage-Mobile*/
+@media (max-width: 768px) {
+    .header.startpage{
+        height: 66vh;
+        z-index: 7;
+    }
+    .toolbar.startpage{
+        position: fixed;
+        background-color: transparent;
+    }
+    .logo.startpage{
+        display: block;
+        margin: 0;
+        color: var(--lightdough);
+        font-size: 3.5vh;
+        font-weight: 500;
+        text-decoration: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
+/*Desktop*/
 @media (min-width: 768px) {
 
     body{
