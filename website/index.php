@@ -36,7 +36,8 @@ $content3 = $decoded_json->data[0]->content3;
         <!-- Header and Navigation bar -->
         <header class="header startpage" style="background-image: url('http://api.holzofenpizzawagen.ch/pizza/assets/header_holzofenpizza_pizzaiolo_2.jpg');"> 
             <!-- Logo -->
-            <a href="index.php" class="logo startpage"><img src="http://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-signet-lightdough_neg.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist"><br>Holzofenpizza</a> 
+            <a href="index.php" class="logo startpage"><img src="http://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-signet-lightdough_neg.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist"><br>Holzofenpizza<br><p class="claim">garantiert gute Laune</p></a>
+            <a class="header-cta-btn" href="https://anfrage.holzofenpizzawagen.ch"><button class="material primary">JETZT ANFRAGEN</button></a>
         </header> 
         <!-- Toolbar -->
         <div class="toolbar startpage"> 
@@ -93,7 +94,8 @@ $content3 = $decoded_json->data[0]->content3;
                 </div> 
             </div>
             <?php echo $content3;?>
-            
+            <br>
+            <a href="https://anfrage.holzofenpizzawagen.ch"><button class="material accent">Jetzt anfragen</button></a>
         </main>
         
         <hr class="divider footerdivider" />

@@ -148,6 +148,19 @@ hr.headerdivider{
     line-height: normal;
     z-index: 9;
 }
+.header-cta-btn{
+    float: right;
+    margin: 27px 27px auto auto;
+}
+.claim{
+    font-style: italic;
+    font-weight: 400;
+    font-size: 2.2vh;
+    line-height: 0.8;
+}
+.logo.startpage .claim{
+    color: var(--darkdough) !important;
+}
 
 /* Logo *************************************************/
 .logomobile{
@@ -214,7 +227,7 @@ a.logomobile:hover{
 .hamb{
     cursor: pointer;
     float: left;
-    padding: 40px 20px;
+    padding: 40px 27px;
 }/* Style label tag */
 
 .hamb-line {
@@ -349,6 +362,11 @@ button.material.primary {
     font-family: sans-serif;
     color: var(--lighttext);
 }
+button.material.accent {
+    background-color: var(--lightdough);
+    font-family: sans-serif;
+    color: var(--darktext);
+}
 
 
 
@@ -361,11 +379,13 @@ button.material.primary {
     .header.startpage{
         height: 66vh;
         z-index: 6;
-        top: 82px;
-        margin-bottom: 164px;
+        /*top: 82px;
+        margin-bottom: 164px;*/
     }
     .toolbar.startpage{
         position: fixed;
+        /*background-color: transparent;*/
+        width: 82px;
     }
     .logo.startpage{
         display: block;
@@ -379,6 +399,12 @@ button.material.primary {
         left: 50%;
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
+    }
+    .side-menu:checked ~ nav{
+        /*position: fixed;*/
+        width: 100vw;
+        background-color: var(--tomato);
+        z-index: 6;
     }
 }
 

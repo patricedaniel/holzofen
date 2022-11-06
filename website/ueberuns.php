@@ -41,7 +41,7 @@ $team2 = $decoded_json->data[0]->team2;
         <!-- Navigation bar -->
         <header class="header"> 
             <!-- Logo -->
-            <a href="index.php" class="logo"><img src="http://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-signet-lightdough_neg.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist"><br>Holzofenpizza</a> 
+            <a href="index.php" class="logo"><img src="http://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-signet-lightdough_neg.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist"><br>Holzofenpizza<p class="claim">garantiert gute Laune</p></a> 
         </header> 
         <!-- Toolbar -->
         <div class="toolbar"> 
@@ -56,7 +56,7 @@ $team2 = $decoded_json->data[0]->team2;
                 <ul class="menu">
                     <li><a href="index.php">Home</a></li>
                     <li class="naveldivider">|</li>
-                    <li><a href="ueberuns.html" style="text-decoration: underline;">Über uns</a> </li>
+                    <li><a href="ueberuns.php" style="text-decoration: underline;">Über uns</a> </li>
                     <li class="naveldivider">|</li>
                     <li><a href="https://anfrage.holzofenpizzawagen.ch">Reservierungsanfrage</a></li>
                     <li class="naveldivider">|</li>
