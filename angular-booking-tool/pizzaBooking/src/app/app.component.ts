@@ -37,8 +37,8 @@ export class AppComponent {
 
   //makes fake data
   private faker() {
-    this.booking.info_adresse_anlass = "Test anlass"
-    this.booking.info_anzahl_erwachsene = 50
+    this.booking.info_adresse_anlass = "Universitätsstrasse 23, 4562 Biberist"
+    //this.booking.info_anzahl_erwachsene = 50
     this.booking.info_anzahl_kinder = 25
     this.booking.info_anzahl_tage = true
     this.booking.info_dauer_anlass = 6
@@ -57,9 +57,9 @@ export class AppComponent {
     this.booking.req_zutaten_mehr_zutaten = true
     this.booking.req_zutaten_teig = true
     this.booking.req_transport = true
-    this.booking.info_adresse_besteller = "Goldstrasse 18, 321 Jerusalem"
-    this.booking.info_email = "howard.wolowitz@wirkaufeneuergold.ju"
-    this.booking.info_name = "Howard Wolowitz"
+    this.booking.info_adresse_besteller = "Dorfstrasse, 4562 Biberist"
+    this.booking.info_email = "leonard.hofstadter@unibiberist.ch"
+    this.booking.info_name = "Leonard Hofstadter"
     this.booking.info_telefon = "032 666 18 32"
   }
 
@@ -97,16 +97,44 @@ export class AppComponent {
   }
 
   nextStep() {
-    console.log(this.booking)
-    this.step++;
-    this.initalizeStep()
+    if(!this.booking.info_full_date) {
+      alert("Hoppla – scheint als hättest du gar kein Datum ausgewählt!");
+    }
+    else if(!this.booking.info_zeit) {
+      alert("Leider hast du keine gültige Uhrzeit eingegeben!");
+    }
+    else if(!this.booking.info_anzahl_erwachsene) {
+      alert("Gib eine ungefähre Anzahl erwachsener Pizzaesser an!");
+    }
+    else if(!this.booking.info_adresse_anlass) {
+      alert("Bitte füll zuerst die Adresse des Veranstaltungsortes aus!");
+    } 
+    else {
+      console.log(this.booking)
+      this.step++;
+      this.initalizeStep()
+    }
   }
 
   sendForm() {
-    this.bookingService.createReservation(this.booking).subscribe((data: any) => {
-      console.log(data)
-    })
-    this.nextStep()
+    if(!this.booking.info_name) {
+      alert("Bitte füll zuerst deinen Vor- und Nachname aus!");
+    }
+    else if(!this.booking.info_email || !this.booking.info_email.includes("@")) {
+      alert("Hoppla, das scheint keine gültige E-Mail-Adresse zu sein!");
+    }
+    else if(!this.booking.info_telefon) {
+      alert("Gerne antworten wir dir telefonisch, dafür brauchen wir aber eine Telefonnummer von dir!");
+    }
+    else if(!this.booking.info_adresse_besteller) {
+      alert("Bitte gib zuerst eine Rechnungsadresse an!");
+    } 
+    else {
+      this.bookingService.createReservation(this.booking).subscribe((data: any) => {
+        console.log(data)
+      })
+      this.nextStep()
+    }
   }
 
   initalizeStep() {

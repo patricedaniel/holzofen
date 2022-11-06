@@ -1,6 +1,9 @@
 <!--Headlines----------------------------------------------------->
 <section class="headline">
   <h1>{{title}}</h1>
+  <p>
+    <span class="stepnr" [ngClass]="{'stepnr1': step==1, 'stepnr2' : step==2, 'stepnr3' : step==3 }"><span> </span></span> 
+  </p>
   <h2>{{subTitle}}</h2>
 </section>
 
@@ -11,7 +14,7 @@
   <p class="inputtitle">An welchem Datum?</p>
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Datum auswählen</mat-label>
-    <input matInput [matDatepicker]="picker" [(ngModel)]="booking.info_full_date">
+    <input matInput [matDatepicker]="picker" [(ngModel)]="booking.info_full_date" required>
     <!--   <mat-hint>MM/DD/YYYY</mat-hint> -->
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker [dateClass]="dateFilter" #picker touchUi></mat-datepicker>
@@ -22,7 +25,7 @@
   <p class="inputtitle">Um welche Uhrzeit?</p>
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Beginn des Anlasses</mat-label>
-    <input matInput [(ngModel)]="booking.info_zeit" type="time" placeholder="12:00 Uhr" value="12:00">
+    <input matInput [(ngModel)]="booking.info_zeit" type="time" placeholder="12:00 Uhr" value="12:00" required>
     <!-- <mat-hint>Wann wir die erste Pizza gegessen?</mat-hint> -->
   </mat-form-field>
 
@@ -31,28 +34,32 @@
   <p class="inputtitle">Wieviele Tage?</p>
   <mat-slide-toggle color="primary" [(ngModel)]="booking.info_anzahl_tage">
     <span class="formtext" *ngIf="!booking.info_anzahl_tage">1 Tag</span>
-    <span class="formtext" *ngIf="booking.info_anzahl_tage">2 Tage</span>
+    <span class="formtext" *ngIf="booking.info_anzahl_tage">2 Tage (mehr als 2 Tage auf Anfrage)</span>
   </mat-slide-toggle>
-
+  
   <br>
 
   <p class="inputtitle">Wieviele Stunden pro Tag?</p>
-  <mat-slider class="sliderWithInput" thumbLabel tickInterval="1" step="1" min="2" max="10" aria-label="units"
+  <!-- Example if Betatest wants Input next to slider -->
+  <!-- <mat-slider class="sliderWithInput" thumbLabel tickInterval="1" step="1" min="2" max="10" aria-label="units"
     color="primary" [(ngModel)]="booking.info_dauer_anlass">
   </mat-slider>
   <mat-form-field class="inputNextToSlider">
     <input matInput type="number" [(ngModel)]="booking.info_dauer_anlass" min="2" max="10">
-  </mat-form-field>
+  </mat-form-field> -->
+  <mat-slider thumbLabel tickInterval="1" step="1" min="2" max="10" aria-label="units"
+    color="primary" [(ngModel)]="booking.info_dauer_anlass">
+  </mat-slider>
   <br>
   <p class="formtext">
     <span [innerHtml]="booking.info_dauer_anlass"></span>
     Stunden (min. 2h, max. 10h)
   </p>
-  <br>
+  <br><br>
 
   <p class="inputtitle">Wieviele erwachsene Pizzaesser?</p>
   <mat-slider thumbLabel tickInterval="1" step="5" min="20" max="600" aria-label="units" color="primary"
-    [(ngModel)]="booking.info_anzahl_erwachsene">
+    [(ngModel)]="booking.info_anzahl_erwachsene" required>
   </mat-slider>
   <br>
   <p class="formtext">
@@ -80,10 +87,9 @@
 
   <p class="inputtitle">Wo findet der Anlass statt?</p>
   <mat-form-field class="example-full-width" appearance="fill">
-    <!--ngModel fehlt-->
     <mat-label>Adresse (Veranstaltungsort)</mat-label>
     <textarea matInput [(ngModel)]="booking.info_adresse_anlass" type="text" rows="4"
-      placeholder="Firma/Verein XY, Poststrasse 10, 4500 Dorf"></textarea>
+      placeholder="Firma/Verein XY, Poststrasse 10, 4500 Dorf" required></textarea>
   </mat-form-field>
 
 </div>
@@ -92,14 +98,14 @@
 <div class="formcolumnwrapper" *ngIf="step==2">
 
   <section class="checkboxgroup">
+    <p class="inputtitle">Ausstattung</p>
     <p>
-      <mat-checkbox [(ngModel)]="booking.req_ofen" color="primary">Pizzaofen inkl. Pizzakelle und ca. 40 Blech.
+      <mat-checkbox [(ngModel)]="booking.req_ofen" color="primary" [disabled]="true">Pizzaofen inkl. Pizzakelle und ca. 40 Blech.
       </mat-checkbox>
     </p>
   </section>
 
   <section class="checkboxgroup">
-    <!--ngModel fehlt-->
     <p class="inputtitle">Personal</p>
     <p>
       <mat-checkbox [(ngModel)]="booking.req_personal_pizaiolo" color="primary">Pizzaiolo</mat-checkbox>
@@ -111,14 +117,6 @@
   </section>
 
   <p class="inputtitle">Pizzas werden belegt durch …</p>
-  <!-- <mat-radio-group
-  aria-labelledby="example-radio-group-label"
-  class="example-radio-group"
-  [(ngModel)]="req_belegt_durch">
-  <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
-    {{season}}
-  </mat-radio-button>
-  </mat-radio-group> -->
   <mat-radio-group name="opList" [(ngModel)]="booking.req_belegt_durch">
     <mat-radio-button color="primary" value="Catering" name="opList">Catering</mat-radio-button>
     <mat-radio-button color="primary" value="Gäste" name="opList">Gäste</mat-radio-button>
@@ -188,30 +186,29 @@
 
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Vorname Nachname</mat-label>
-    <input [(ngModel)]="booking.info_name" matInput type="text" placeholder="Vorname Nachname" value="">
+    <input [(ngModel)]="booking.info_name" matInput type="text" placeholder="Vorname Nachname" value="" required minlength="4">
   </mat-form-field>
 
   <mat-form-field class="example-full-width" appearance="fill">
     <!--ngModel fehlt-->
     <mat-label>Telefonnummer</mat-label>
     <!-- <mat-icon matSuffix>phone</mat-icon> -->
-    <input [(ngModel)]="booking.info_telefon" matInput type="text" placeholder="032 672 00 00" value="">
+    <input [(ngModel)]="booking.info_telefon" matInput type="text" placeholder="032 672 00 00" value="" required minlength="10">
     <mat-hint>Private oder geschäftliche Telefonnummer</mat-hint>
   </mat-form-field>
 
   <mat-form-field class="example-full-width" appearance="fill">
     <!--ngModel fehlt-->
     <mat-label>E-Mail-Adresse</mat-label>
-    <input [(ngModel)]="booking.info_email" matInput type="email" placeholder="m.muster@mail.com" required>
+    <input [(ngModel)]="booking.info_email" matInput type="email" placeholder="m.muster@mail.com" required minlength="8">
     <!-- <input matInput type="text" placeholder="pat@example.com" [formControl]="email" required> -->
-    <mat-hint>Private oder geschäftliche Telefonnummer</mat-hint>
   </mat-form-field>
 
   <mat-form-field class="example-full-width" appearance="fill">
     <!--ngModel fehlt-->
     <mat-label>Adresse (Rechnungsadresse)</mat-label>
     <textarea [(ngModel)]="booking.info_adresse_besteller" matInput type="text" rows="4"
-      placeholder="Firma/Verein XY, Poststrasse 10, 4500 Dorf"></textarea>
+      placeholder="Firma/Verein XY, Poststrasse 10, 4500 Dorf" required></textarea>
   </mat-form-field>
 
 </div>

@@ -5,6 +5,47 @@
     font-size: 1.1rem;
 }
 
+// stepper //////////////////////////////////////////
+.stepnr span{
+    width: 41px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-weight: 800;
+    background-color: var(--tomato);
+    color: var(--lighttext);
+    line-height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    //border: 2px solid #666;
+    display: inline-block;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.stepnr1::after {
+    content: "● ●"; //• ●
+    color: var(--tomato);
+}
+.stepnr1 span::before {
+    content: "1";
+}
+.stepnr2::before { 
+    content: "●";
+    color: var(--tomato);
+}
+.stepnr2::after { 
+    content: "●";
+    color: var(--tomato);
+}
+.stepnr2 span::before { 
+    content: "2";
+}
+.stepnr3::before { 
+    content: "● ●";
+    color: var(--tomato);
+}
+.stepnr3 span::before { 
+    content: "3";
+}
+
 .formtext{
     font-family: Roboto, "Helvetica Neue", sans-serif;
     font-size: 0.9rem;
@@ -15,8 +56,9 @@
 // material overwrite //////////////////////////////////////////
 // disabled calendar data in datepicker
 button.disabled-class {
-    background: rgb(50, 50, 50);
+    background: rgb(70, 70, 70);
     border-radius: 100%;
+    pointer-events: none;
 }
 
 button a {
