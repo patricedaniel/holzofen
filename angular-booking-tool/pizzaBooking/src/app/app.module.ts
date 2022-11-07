@@ -20,6 +20,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -40,11 +41,13 @@ import { MatRadioModule } from '@angular/material/radio';
     MatSlideToggleModule,
     MatCheckboxModule,
     MatRadioModule,
+    MatSnackBarModule,
     FormsModule,
     BrowserAnimationsModule
   ],
   providers: [
-    { provide: MAT_DATE_LOCALE, useValue: 'de-CH' }
+    { provide: MAT_DATE_LOCALE, useValue: 'de-CH' },
+    MatSnackBarModule
   ],
   bootstrap: [AppComponent]
 })

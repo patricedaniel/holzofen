@@ -1,6 +1,7 @@
 import { Component, Renderer2, ViewEncapsulation } from '@angular/core';
 import { DateAdapter } from '@angular/material/core';
 import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { observable } from 'rxjs';
 import { Booking } from './models/class/booking';
 import { DirectusBookingPublic } from './models/responses/booking';
@@ -18,6 +19,7 @@ export class AppComponent {
   subTitle = 'Details zum Anlass'
   booking = new Booking()
   bookedDates: Record<number, Array<number>> = {}
+  snackBar: any;
 
 
   dateFilter: MatCalendarCellClassFunction<Date> = (cellDate, view) => {
@@ -30,7 +32,7 @@ export class AppComponent {
     return '';
   };
 
-  constructor(private bookingService: BookingService, private renderer: Renderer2) {
+  constructor(private bookingService: BookingService, private renderer: Renderer2, private matSnackBar: MatSnackBar) {
     this.loadAppointments()
     this.faker()
   }
@@ -98,16 +100,16 @@ export class AppComponent {
 
   nextStep() {
     if(!this.booking.info_full_date) {
-      alert("Hoppla – scheint als hättest du gar kein Datum ausgewählt!");
+      this.matSnackBar.open("Hoppla – scheint als hättest du gar kein Datum ausgewählt!", "OK");
     }
     else if(!this.booking.info_zeit) {
-      alert("Leider hast du keine gültige Uhrzeit eingegeben!");
+      this.matSnackBar.open("Leider hast du keine gültige Uhrzeit eingegeben!", "OK");
     }
     else if(!this.booking.info_anzahl_erwachsene) {
-      alert("Gib eine ungefähre Anzahl erwachsener Pizzaesser an!");
+      this.matSnackBar.open("Gib eine ungefähre Anzahl erwachsener Pizzaesser an!", "OK");
     }
     else if(!this.booking.info_adresse_anlass) {
-      alert("Bitte füll zuerst die Adresse des Veranstaltungsortes aus!");
+      this.matSnackBar.open("Bitte füll zuerst die Adresse des Veranstaltungsortes aus!", "OK");
     } 
     else {
       console.log(this.booking)
@@ -118,16 +120,16 @@ export class AppComponent {
 
   sendForm() {
     if(!this.booking.info_name) {
-      alert("Bitte füll zuerst deinen Vor- und Nachname aus!");
+      this.matSnackBar.open("Bitte füll zuerst deinen Vor- und Nachname aus!", "OK");
     }
     else if(!this.booking.info_email || !this.booking.info_email.includes("@")) {
-      alert("Hoppla, das scheint keine gültige E-Mail-Adresse zu sein!");
+      this.matSnackBar.open("Hoppla, das scheint keine gültige E-Mail-Adresse zu sein!", "OK");
     }
     else if(!this.booking.info_telefon) {
-      alert("Gerne antworten wir dir telefonisch, dafür brauchen wir aber eine Telefonnummer von dir!");
+      this.matSnackBar.open("Gerne antworten wir dir telefonisch, dafür brauchen wir aber eine Telefonnummer von dir!", "OK");
     }
     else if(!this.booking.info_adresse_besteller) {
-      alert("Bitte gib zuerst eine Rechnungsadresse an!");
+      this.matSnackBar.open("Bitte gib zuerst eine Rechnungsadresse an!", "OK");
     } 
     else {
       this.bookingService.createReservation(this.booking).subscribe((data: any) => {

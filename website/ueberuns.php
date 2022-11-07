@@ -41,7 +41,8 @@ $team2 = $decoded_json->data[0]->team2;
         <!-- Navigation bar -->
         <header class="header"> 
             <!-- Logo -->
-            <a href="index.php" class="logo"><img src="http://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-signet-lightdough_neg.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist"><br>Holzofenpizza<p class="claim">garantiert gute Laune</p></a> 
+            <a href="index.php" class="logo"><img src="http://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-signet-lightdough_neg.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist"><br>Holzofenpizza<p class="claim">garantiert gute Laune</p></a>
+            <a class="header-cta-btn" href="https://anfrage.holzofenpizzawagen.ch"><button class="material accent">JETZT ANFRAGEN</button></a>
         </header> 
         <!-- Toolbar -->
         <div class="toolbar"> 

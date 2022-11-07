@@ -157,6 +157,7 @@ hr.headerdivider{
     font-weight: 400;
     font-size: 2.2vh;
     line-height: 0.8;
+    padding-left: 8px;
 }
 .logo.startpage .claim{
     color: var(--darkdough) !important;
@@ -298,10 +299,11 @@ svg.footerimage{
 /* NOT FOR THE ANGULAR BOOKING TOOL ********************************************************/
 input,
 button {
-  color: inherit;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    cursor: pointer;
 }
 form.material.form-content {
     display: grid;
@@ -323,6 +325,7 @@ form.material.form-content {
 .inputfield input {
     background-image: linear-gradient(to bottom, transparent calc(100% - 0.125rem), #ccc 0.125rem);
     font-family: sans-serif;
+    font-size: 1.1rem;
     border: none;
     outline: none;
     padding: 3rem 0 0.5rem 0;
@@ -332,7 +335,7 @@ form.material.form-content {
     margin: 3rem 0;
     color: var(--darktext);
     font-family: sans-serif;
-    font-size: inherit;
+    font-size: 1.1rem;
     line-height: inherit;
     border: none;
     line-height: 1.2;
