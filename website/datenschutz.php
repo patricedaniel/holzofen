@@ -1,3 +1,12 @@
+<?php
+
+$content = file_get_contents("https://api.holzofenpizzawagen.ch/pizza/items/privacy_statement");
+$decoded_json = json_decode($content, false);
+ 
+$content = $decoded_json->data[0]->content;
+
+?>
+
 <!DOCTYPE html> 
 <html lang="de-CH">
     <head>
@@ -16,7 +25,7 @@
         <!--<script src=“rsrc/scripts/meinScript.js“></script> -->
         <script language="JavaScript" src="scripts/gen_validatorv31.js" type="text/javascript"></script>
         
-        <title>Holzofenpizzawagen</title>
+        <title>Datenschutz - Holzofenpizzawagen</title>
 
     </head>
     <body>
@@ -42,7 +51,7 @@
                     <li class="naveldivider">|</li>
                     <li><a href="https://anfrage.holzofenpizzawagen.ch">Reservierungsanfrage</a></li>
                     <li class="naveldivider">|</li>
-                    <li><a href="kontakt.html" style="text-decoration: underline;">Kontakt</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
                 </ul>
             </nav>
         </div>
@@ -53,12 +62,9 @@
             
             
         <main class="onecolumn">
-            <h1>
-            Danke für Ihre Anfrage
-            </h1>
-            Wir melden uns schnellstmöglich bei Ihnen.<br /><br />
-            <a href="index.php"><button class="material primary">Zurück zur Startseite</button></a>
+            <?php echo $content;?>
         </main>
+        
         <hr class="divider footerdivider" />
         <footer>
             holzofenpizzawagen.ch<br />

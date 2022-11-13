@@ -377,8 +377,11 @@ button.material.accent {
 /**********************************************************************/
 /**********************************************************************/
 
-/*Only Startpage-Mobile*/
+/*Only Mobile*/
 @media (max-width: 768px) {
+    .hideonmobile{
+        display: none !important;
+    }
     .header.startpage{
         height: 66vh;
         z-index: 6;
@@ -444,7 +447,6 @@ button.material.accent {
         width: auto;
     }
     .portraitimage{
-        width: 25%;
     }
     
     header{
