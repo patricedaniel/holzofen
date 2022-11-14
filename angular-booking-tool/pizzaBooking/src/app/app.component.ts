@@ -34,6 +34,7 @@ export class AppComponent {
 
   constructor(private bookingService: BookingService, private renderer: Renderer2, private matSnackBar: MatSnackBar) {
     this.loadAppointments()
+    this.loadAbsences()
     this.faker()
   }
 
@@ -81,6 +82,24 @@ export class AppComponent {
           this.bookedDates[month].push(day)
           if (isTwoDay) {
             this.bookedDates[month].push(day + 1)
+          }
+        }
+      }
+    })
+  }
+
+  private loadAbsences() {
+    this.bookingService.getAllAbsences().subscribe((result: DirectusBookingPublic) => {
+      for (let date of result.data) {
+        for(var arr=[],dt=new Date(date.absence_start); dt<=new Date(date.absence_end); dt.setDate(dt.getDate()+1)){
+          arr.push(new Date(dt));
+          let parsedDate = new Date(dt);
+          let month = parsedDate.getMonth()
+          let day = parsedDate.getDate()
+          if (this.bookedDates[month] == null) {
+            this.bookedDates[month] = [day]
+          } else {
+            this.bookedDates[month].push(day)
           }
         }
       }

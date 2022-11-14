@@ -18,6 +18,11 @@ export class BookingService {
     return this.http.get<DirectusBookingPublic>(url);
   }
 
+  public getAllAbsences(): Observable<DirectusBookingPublic> {
+    let url = this.baseUrl + "/items/absences"
+    return this.http.get<DirectusBookingPublic>(url);
+  }
+
   public createReservation(booking: Booking): Observable<DirectusBookingPublic> {
     let url = this.baseUrl + "/items/reservations"
 
