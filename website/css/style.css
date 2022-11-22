@@ -76,7 +76,7 @@ h2{
 .columnwrapper{
     /*just for desktop important*/
 }
-.twocolumn{
+.twocolumn, .twocolumnportrait{
     width: 80%;
     display: block;
     margin: auto;
@@ -99,9 +99,9 @@ div.twocolumn:has(img){
     margin-left: 50%;
     transform: translateX(-50%)
 }
-.twocolumnportrait{
-    margin-top: 6rem !important;
-    margin-bottom: 6rem !important;
+.twocolumnportrait{ /*additional*/
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
     text-align: center;
 }
 .portraitimage{
@@ -435,7 +435,7 @@ button.material.accent {
         flex-direction: row;
         align-items: center;
     }
-    .twocolumn{
+    .twocolumn, .twocolumnportrait{
         padding: 5%;
         overflow-wrap: anywhere;
         flex-grow: 1;

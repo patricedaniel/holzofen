@@ -87,10 +87,10 @@ $team2 = $decoded_json->data[0]->team2;
         
         <!-- 2 Columns -->
         <div class="columnwrapper">
-            <div class="twocolumn twocolumnportrait">
+            <div class="twocolumnportrait">
                 <?php echo $team1;?>
             </div>
-            <div class="twocolumn twocolumnportrait">
+            <div class="twocolumnportrait">
                 <?php echo $team2;?>
             </div>
         </div>
