@@ -1,5 +1,5 @@
-# holzofen
-Website and Reservation-Form realized in Angular as a diploma work for ZbW St. Gallen
+# Holzofenpizzawagen
+Website and booking tool developed in Angular as diploma thesis for the ZbW St. Gallen
 
 ___
 1. Clone or download the repository to your machine.
