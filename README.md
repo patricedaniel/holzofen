@@ -11,7 +11,7 @@ ___
 3. See the preview on `http://localhost:9000`
 
 ## Booking-Tool (Reservierungsanfragetool)
-1. If not installed on your machine [download and install node.js](https://https://nodejs.org/de/download/ "external Link to the node website")
+1. If not installed on your machine [download and install node.js](https://nodejs.org/de/download/ "external Link to the node website")
 1. Navigate to: `/holzofen/angular-booking-tool/pizzaBooking`
 1. Install NPM: `npm install`
 1. Install the angular-cli (globally): `npm install -g @angular/cli`
