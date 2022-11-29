@@ -35,13 +35,14 @@ export class AppComponent {
   constructor(private bookingService: BookingService, private renderer: Renderer2, private matSnackBar: MatSnackBar) {
     this.loadAppointments()
     this.loadAbsences()
-    this.faker()
+    // Activate faker for Testdata 
+    //this.faker()
   }
 
   //makes fake data
   private faker() {
     this.booking.info_adresse_anlass = "Universitätsstrasse 23, 4562 Biberist"
-    //this.booking.info_anzahl_erwachsene = 50
+    this.booking.info_anzahl_erwachsene = 50
     this.booking.info_anzahl_kinder = 25
     this.booking.info_anzahl_tage = true
     this.booking.info_dauer_anlass = 6
@@ -91,7 +92,7 @@ export class AppComponent {
   private loadAbsences() {
     this.bookingService.getAllAbsences().subscribe((result: DirectusBookingPublic) => {
       for (let date of result.data) {
-        for(var arr=[],dt=new Date(date.absence_start); dt<=new Date(date.absence_end); dt.setDate(dt.getDate()+1)){
+        for (var arr = [], dt = new Date(date.absence_start); dt <= new Date(date.absence_end); dt.setDate(dt.getDate() + 1)) {
           arr.push(new Date(dt));
           let parsedDate = new Date(dt);
           let month = parsedDate.getMonth()
@@ -118,18 +119,21 @@ export class AppComponent {
   }
 
   nextStep() {
-    if(!this.booking.info_full_date) {
+    if (!this.booking.info_full_date) {
       this.matSnackBar.open("Hoppla – scheint als hättest du gar kein Datum ausgewählt!", "OK");
     }
-    else if(!this.booking.info_zeit) {
+    else if (this.diff(new Date(), this.booking.info_full_date) < 9) {
+      this.matSnackBar.open("Du solltes mindestens 10 Tage im voraus reservieren!", "OK");
+    }
+    else if (!this.booking.info_zeit) {
       this.matSnackBar.open("Leider hast du keine gültige Uhrzeit eingegeben!", "OK");
     }
-    else if(!this.booking.info_anzahl_erwachsene) {
+    else if (!this.booking.info_anzahl_erwachsene) {
       this.matSnackBar.open("Gib eine ungefähre Anzahl erwachsener Pizzaesser an!", "OK");
     }
-    else if(!this.booking.info_adresse_anlass) {
+    else if (!this.booking.info_adresse_anlass) {
       this.matSnackBar.open("Bitte füll zuerst die Adresse des Veranstaltungsortes aus!", "OK");
-    } 
+    }
     else {
       console.log(this.booking)
       this.step++;
@@ -137,19 +141,24 @@ export class AppComponent {
     }
   }
 
+  diff(d1: Date, d2: Date) {
+    const msInDay = 24 * 60 * 60 * 1000;
+    return Math.round(Math.abs(Number(d1) - Number(d2)) / msInDay);
+  }
+
   sendForm() {
-    if(!this.booking.info_name) {
+    if (!this.booking.info_name) {
       this.matSnackBar.open("Bitte füll zuerst deinen Vor- und Nachname aus!", "OK");
     }
-    else if(!this.booking.info_email || !this.booking.info_email.includes("@")) {
+    else if (!this.booking.info_email || !this.booking.info_email.includes("@")) {
       this.matSnackBar.open("Hoppla, das scheint keine gültige E-Mail-Adresse zu sein!", "OK");
     }
-    else if(!this.booking.info_telefon) {
+    else if (!this.booking.info_telefon) {
       this.matSnackBar.open("Gerne antworten wir dir telefonisch, dafür brauchen wir aber eine Telefonnummer von dir!", "OK");
     }
-    else if(!this.booking.info_adresse_besteller) {
+    else if (!this.booking.info_adresse_besteller) {
       this.matSnackBar.open("Bitte gib zuerst eine Rechnungsadresse an!", "OK");
-    } 
+    }
     else {
       this.bookingService.createReservation(this.booking).subscribe((data: any) => {
         console.log(data)

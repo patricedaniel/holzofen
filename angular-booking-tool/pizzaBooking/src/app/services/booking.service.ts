@@ -50,7 +50,7 @@ export class BookingService {
     }
     let dateString;
     if (booking.info_full_date != undefined) {
-      dateString = booking.info_full_date.getFullYear() + "-" + (booking.info_full_date.getMonth() + 1) + "-" + booking.info_full_date.getDate()
+      dateString = this.getDateString(booking)
     }
     let timeString;
     if (booking.info_zeit != undefined) {
@@ -86,5 +86,20 @@ export class BookingService {
     }
     console.log(data)
     return this.http.post<DirectusBookingPublic>(url, data);
+  }
+
+  getDateString(booking: any): String {
+    if (booking != undefined) {
+      let month = (booking.info_full_date.getMonth() + 1)
+      if (month <= 9) {
+        month = "0" + month
+      }
+      let date = booking.info_full_date.getDate()
+      if (date <= 9) {
+        date = "0" + date
+      }
+      return booking?.info_full_date.getFullYear() + "-" + month + "-" + date
+    }
+    return "";
   }
 }
