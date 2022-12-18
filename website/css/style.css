@@ -148,19 +148,13 @@ hr.headerdivider{
     line-height: normal;
     z-index: 9;
 }
+.header.startpage{
+    height: 66vh;
+    z-index: 6;
+}
 .header-cta-btn{
     float: right;
     margin: 27px 27px auto auto;
-}
-.claim{
-    font-style: italic;
-    font-weight: 400;
-    font-size: 2.2vh;
-    line-height: 0.8;
-    padding-left: 8px;
-}
-.logo.startpage .claim{
-    color: var(--darkdough) !important;
 }
 
 /* Logo *************************************************/
@@ -170,7 +164,7 @@ hr.headerdivider{
     color: var(--lightdough);
     text-decoration: none;
     font-weight: 500;
-    font-size: 30px;
+    font-size: 6.5vw;
     text-align: center;
     align-items: center;
     top: 43px;
@@ -182,10 +176,21 @@ a.logomobile:hover{
     text-decoration: none;
 }
 .logomobile img{
-    height: 60px;
+    height: 2em;
+    max-height: 60px;
     display: inline;
-    margin-right: 20px;
+    margin-right: 10px;
     margin-bottom: 5px;
+}
+.claim{
+    font-style: italic;
+    font-weight: 400;
+    font-size: 2.2vh;
+    line-height: 0.8;
+    padding-left: 8px;
+}
+.logo.startpage .claim{
+    color: var(--darkdough) !important;
 }
 /* Desktoplogo hidden on mobile*/
 .logo{
@@ -370,6 +375,10 @@ button.material.accent {
     font-family: sans-serif;
     color: var(--darktext);
 }
+button.material.cta {
+    font-size: 18px;
+    padding: 1rem 2rem;
+}
 
 
 
@@ -382,12 +391,6 @@ button.material.accent {
     .hideonmobile{
         display: none !important;
     }
-    .header.startpage{
-        height: 66vh;
-        z-index: 6;
-        /*top: 82px;
-        margin-bottom: 164px;*/
-    }
     .toolbar.startpage{
         position: fixed;
         /*background-color: transparent;*/
@@ -397,7 +400,7 @@ button.material.accent {
         display: block;
         margin: 0;
         color: var(--lightdough);
-        font-size: 3.5vh;
+        font-size: 4.5vh;
         font-weight: 500;
         text-decoration: none;
         position: absolute;
@@ -405,6 +408,12 @@ button.material.accent {
         left: 50%;
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
+    }
+    .logo img{
+        height: 22vh
+    }
+    .claim{
+        font-size: 2.9vh;
     }
     .side-menu:checked ~ nav{
         /*position: fixed;*/
@@ -449,8 +458,8 @@ button.material.accent {
     .portraitimage{
     }
     
-    header{
-        height: 33vh;
+    header:not(.startpage){
+        height: 27vh;
     }
     
     hr.headerdivider{
@@ -487,7 +496,7 @@ button.material.accent {
         display: block;
         margin: 0;
         color: var(--lightdough);
-        font-size: 3.5vh;
+        font-size: 3.4vh;
         font-weight: 500;
         text-decoration: none;
         position: absolute;
@@ -501,7 +510,16 @@ button.material.accent {
         text-decoration: none;
     }
     .logo img{
-        height: 14vh;
+        height: 13vh
+    }
+    .logo.startpage{
+        font-size: 4.5vh;
+    }
+    .logo.startpage img{
+        height: 18vh;
         margin-top: 10%;
+    }
+    .logo.startpage .claim{
+        font-size: 2.9vh;
     }
 }

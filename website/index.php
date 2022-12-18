@@ -17,6 +17,8 @@ $content3 = $decoded_json->data[0]->content3;
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charset="UTF-8">
+        <meta name="description" content="Planen Sie einen Anlass in der Region Solothurn? Unser einzigartiger Holzofenpizzawagen ist genau das richtige für Sie. Knusprige Pizzas sorgen immer für gute Laune.">
+        <meta name="keywords" content="Pizza, Holzofen, Catering, Biberist, Solothurn, Holzofenpizza, Pizzawagen, Pizzamobil, Anlass, Firmenfest, Vereinsfest, Geburtstag, Hochzeit, Party">
         <!-- Stylesheets -->
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <!-- Font -->
@@ -95,7 +97,7 @@ $content3 = $decoded_json->data[0]->content3;
             </div>
             <?php echo $content3;?>
             <br>
-            <a href="https://anfrage.holzofenpizzawagen.ch"><button class="material accent">Jetzt anfragen</button></a>
+            <a href="https://anfrage.holzofenpizzawagen.ch"><button class="material accent cta">Jetzt anfragen</button></a>
         </main>
         
         <hr class="divider footerdivider" />

@@ -56,7 +56,6 @@ export class BookingService {
     if (booking.info_zeit != undefined) {
       timeString = booking.info_zeit.hours + ":" + booking.info_zeit.minutes + ":00"
     }
-    console.log(dateString)
 
     let data = {
       "req_ofen": [
@@ -84,7 +83,6 @@ export class BookingService {
       "info_datum": dateString,
       "info_name": booking.info_name
     }
-    console.log(data)
     return this.http.post<DirectusBookingPublic>(url, data);
   }
 

@@ -142,11 +142,11 @@ mat-radio-button{
     margin: auto;
 }
 .buttonwrapper {
-    padding: 2rem 0 3rem 0px;
+    padding: 2rem 0 3rem 0;
     text-align: center;
 }
 .buttonwrapper button {
-    margin: 0 20px 0 20px;
+    margin: 10px 5px 10px 5px;
 }
 
 
@@ -164,6 +164,9 @@ mat-radio-button{
         column-gap: 3rem;
         width: 60%;
         max-width: 1000px;
+    }
+    .buttonwrapper button {
+        margin: 0 20px 0 20px;
     }
 
 }

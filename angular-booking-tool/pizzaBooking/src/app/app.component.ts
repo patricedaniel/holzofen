@@ -1,8 +1,6 @@
 import { Component, Renderer2, ViewEncapsulation } from '@angular/core';
-import { DateAdapter } from '@angular/material/core';
 import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { observable } from 'rxjs';
 import { Booking } from './models/class/booking';
 import { DirectusBookingPublic } from './models/responses/booking';
 import { BookingService } from './services/booking.service';
@@ -36,7 +34,7 @@ export class AppComponent {
     this.loadAppointments()
     this.loadAbsences()
     // Activate faker for Testdata 
-    //this.faker()
+    // this.faker()
   }
 
   //makes fake data
@@ -67,6 +65,7 @@ export class AppComponent {
     this.booking.info_telefon = "032 666 18 32"
   }
 
+  // load all Bookings to show mark not awaylable dates in the calendar
   private loadAppointments() {
     this.bookingService.getAllActiveReservations().subscribe((result: DirectusBookingPublic) => {
       for (let date of result.data) {
@@ -89,6 +88,7 @@ export class AppComponent {
     })
   }
 
+  // load all Absences to show mark not awaylable dates in the calendar
   private loadAbsences() {
     this.bookingService.getAllAbsences().subscribe((result: DirectusBookingPublic) => {
       for (let date of result.data) {
@@ -113,16 +113,21 @@ export class AppComponent {
     }
     return pizzaEsser * 2
   }
+
   previousStep() {
     this.step--;
     this.initalizeStep()
+    this.scrollToTop()
   }
 
   nextStep() {
     if (!this.booking.info_full_date) {
       this.matSnackBar.open("Hoppla – scheint als hättest du gar kein Datum ausgewählt!", "OK");
     }
-    else if (this.diff(new Date(), this.booking.info_full_date) < 9) {
+    else if (this.isInThePast(new Date(), this.booking.info_full_date)) {
+      this.matSnackBar.open("Dein Wunschdatum liegt in der Vergangenheit!", "OK");
+    }
+    else if (this.dateDiff(new Date(), this.booking.info_full_date) < 9) {
       this.matSnackBar.open("Du solltes mindestens 10 Tage im voraus reservieren!", "OK");
     }
     else if (!this.booking.info_zeit) {
@@ -135,15 +140,19 @@ export class AppComponent {
       this.matSnackBar.open("Bitte füll zuerst die Adresse des Veranstaltungsortes aus!", "OK");
     }
     else {
-      console.log(this.booking)
       this.step++;
       this.initalizeStep()
+      this.scrollToTop()
     }
   }
 
-  diff(d1: Date, d2: Date) {
+  dateDiff(d1: Date, d2: Date) {
     const msInDay = 24 * 60 * 60 * 1000;
     return Math.round(Math.abs(Number(d1) - Number(d2)) / msInDay);
+  }
+
+  isInThePast(d1: Date, d2: Date) {
+    return d1.setHours(0, 0, 0, 0) <= d2.setHours(0, 0, 0, 0) ? false : true;
   }
 
   sendForm() {
@@ -161,14 +170,12 @@ export class AppComponent {
     }
     else {
       this.bookingService.createReservation(this.booking).subscribe((data: any) => {
-        console.log(data)
       })
       this.nextStep()
     }
   }
 
   initalizeStep() {
-    console.log(this.booking)
     switch (this.step) {
       case 1:
         this.subTitle = 'Details zum Anlass'
@@ -183,6 +190,11 @@ export class AppComponent {
         this.subTitle = 'Vielen Dank für Ihre Anfrage'
         break;
     }
+  }
+
+  scrollToTop() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   }
 
 }

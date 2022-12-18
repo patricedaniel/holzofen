@@ -22,6 +22,8 @@ $team2 = $decoded_json->data[0]->team2;
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charset="UTF-8">
+        <meta name="description" content="Angefangen an einem Dorffest in den frühen 90ern, betreiben wir unseren fahrbaren Holzofen an kleinen und grossen Festen in der Umgebung Solothurn.">
+        <meta name="keywords" content="Pizza, Holzofen, Catering, Biberist, Solothurn, Holzofenpizza, Pizzawagen, Pizzamobil, Anlass, Firmenfest, Vereinsfest, Geburtstag, Hochzeit, Party">
         <!-- Stylesheets -->
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <!-- Font -->
@@ -41,7 +43,7 @@ $team2 = $decoded_json->data[0]->team2;
         <!-- Navigation bar -->
         <header class="header"> 
             <!-- Logo -->
-            <a href="index.php" class="logo"><img src="http://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-signet-lightdough_neg.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist"><br>Holzofenpizza<p class="claim">garantiert gute Laune</p></a>
+            <a href="index.php" class="logo"><img src="http://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-signet-lightdough_neg.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist"><br>Holzofenpizza<!--<p class="claim">garantiert gute Laune</p>--></a>
             <a class="header-cta-btn hideonmobile" href="https://anfrage.holzofenpizzawagen.ch"><button class="material accent">JETZT ANFRAGEN</button></a>
         </header> 
         <!-- Toolbar -->

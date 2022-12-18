@@ -76,7 +76,7 @@ h2{
 .columnwrapper{
     /*just for desktop important*/
 }
-.twocolumn{
+.twocolumn, .twocolumnportrait{
     width: 80%;
     display: block;
     margin: auto;
@@ -99,9 +99,9 @@ div.twocolumn:has(img){
     margin-left: 50%;
     transform: translateX(-50%)
 }
-.twocolumnportrait{
-    margin-top: 6rem !important;
-    margin-bottom: 6rem !important;
+.twocolumnportrait{ /*additional*/
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
     text-align: center;
 }
 .portraitimage{
@@ -148,15 +148,13 @@ hr.headerdivider{
     line-height: normal;
     z-index: 9;
 }
-.claim{
-    font-style: italic;
-    font-weight: 400;
-    font-size: 2.2vh;
-    line-height: 0.8;
-    padding-left: 8px;
+.header.startpage{
+    height: 66vh;
+    z-index: 6;
 }
-.logo.startpage .claim{
-    color: var(--darkdough) !important;
+.header-cta-btn{
+    float: right;
+    margin: 27px 27px auto auto;
 }
 
 /* Logo *************************************************/
@@ -166,7 +164,7 @@ hr.headerdivider{
     color: var(--lightdough);
     text-decoration: none;
     font-weight: 500;
-    font-size: 30px;
+    font-size: 6.5vw;
     text-align: center;
     align-items: center;
     top: 43px;
@@ -178,10 +176,21 @@ a.logomobile:hover{
     text-decoration: none;
 }
 .logomobile img{
-    height: 60px;
+    height: 2em;
+    max-height: 60px;
     display: inline;
-    margin-right: 20px;
+    margin-right: 10px;
     margin-bottom: 5px;
+}
+.claim{
+    font-style: italic;
+    font-weight: 400;
+    font-size: 2.2vh;
+    line-height: 0.8;
+    padding-left: 8px;
+}
+.logo.startpage .claim{
+    color: var(--darkdough) !important;
 }
 /* Desktoplogo hidden on mobile*/
 .logo{
@@ -197,7 +206,7 @@ a.logomobile:hover{
     width: 100%;
     text-align: center;
     line-height: normal;
-    z-index: 8;
+    z-index: 7;
 }
 .nav{
     width: 100%;
@@ -224,7 +233,7 @@ a.logomobile:hover{
 .hamb{
     cursor: pointer;
     float: left;
-    padding: 40px 20px;
+    padding: 40px 27px;
 }/* Style label tag */
 
 .hamb-line {
@@ -294,6 +303,45 @@ svg.footerimage{
 /* Meke it responsive *************************************************/
 /**********************************************************************/
 /**********************************************************************/
+
+/*Only Mobile*/
+@media (max-width: 768px) {
+    .hideonmobile{
+        display: none !important;
+    }
+    .toolbar.startpage{
+        position: fixed;
+        /*background-color: transparent;*/
+        width: 82px;
+    }
+    .logo.startpage{
+        display: block;
+        margin: 0;
+        color: var(--lightdough);
+        font-size: 4.5vh;
+        font-weight: 500;
+        text-decoration: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    .logo img{
+        height: 22vh
+    }
+    .claim{
+        font-size: 2.9vh;
+    }
+    .side-menu:checked ~ nav{
+        /*position: fixed;*/
+        width: 100vw;
+        background-color: var(--tomato);
+        z-index: 6;
+    }
+}
+
+/*Desktop*/
 @media (min-width: 768px) {
 
     body{
@@ -314,7 +362,7 @@ svg.footerimage{
         flex-direction: row;
         align-items: center;
     }
-    .twocolumn{
+    .twocolumn, .twocolumnportrait{
         padding: 5%;
         overflow-wrap: anywhere;
         flex-grow: 1;
@@ -326,11 +374,10 @@ svg.footerimage{
         width: auto;
     }
     .portraitimage{
-        width: 25%;
     }
     
-    header{
-        height: 33vh;
+    header:not(.startpage){
+        height: 27vh;
     }
     
     hr.headerdivider{
@@ -367,7 +414,7 @@ svg.footerimage{
         display: block;
         margin: 0;
         color: var(--lightdough);
-        font-size: 3.5vh;
+        font-size: 3.4vh;
         font-weight: 500;
         text-decoration: none;
         position: absolute;
@@ -381,7 +428,16 @@ svg.footerimage{
         text-decoration: none;
     }
     .logo img{
-        height: 14vh;
+        height: 13vh
+    }
+    .logo.startpage{
+        font-size: 4.5vh;
+    }
+    .logo.startpage img{
+        height: 18vh;
         margin-top: 10%;
+    }
+    .logo.startpage .claim{
+        font-size: 2.9vh;
     }
 }
