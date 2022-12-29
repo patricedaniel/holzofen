@@ -32,12 +32,12 @@ $content = $decoded_json->data[0]->content;
         <!-- Header and Navigation bar -->
         <header class="header"> 
             <!-- Logo -->
-            <a href="index.php" class="logo"><img src="http://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-signet-lightdough_neg.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist"><br>Holzofenpizza<!--<p class="claim">garantiert gute Laune</p>--></a> 
+            <a href="index.php" class="logo"><img src="https://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-signet-lightdough_neg.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist"><br>Holzofenpizza<!--<p class="claim">garantiert gute Laune</p>--></a> 
         </header> <!-- Muss ans Ende damit Hamburgermenü funktioniert -->
         <!-- Toolbar -->
         <div class="toolbar"> 
             <!-- Logo for mobile integration in Toolbar -->
-            <a href="index.php" class="logomobile"><img src="http://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-thumb-lightdough.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist">Holzofenpizza</a>
+            <a href="index.php" class="logomobile"><img src="https://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-thumb-lightdough.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist">Holzofenpizza</a>
             <hr class="divider headerdivider" />
             <!-- Hamburger icon -->
             <input class="side-menu" type="checkbox" id="side-menu"/>

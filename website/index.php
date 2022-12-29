@@ -36,15 +36,15 @@ $content3 = $decoded_json->data[0]->content3;
     </head>
     <body>
         <!-- Header and Navigation bar -->
-        <header class="header startpage" style="background-image: url('http://api.holzofenpizzawagen.ch/pizza/assets/header_holzofenpizza_pizzaiolo_2.jpg');"> 
+        <header class="header startpage" style="background-image: url('https://api.holzofenpizzawagen.ch/pizza/assets/header_holzofenpizza_pizzaiolo_2.jpg');"> 
             <!-- Logo -->
-            <a href="index.php" class="logo startpage"><img src="http://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-signet-lightdough_neg.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist"><br>Holzofenpizza<br><p class="claim">garantiert gute Laune</p></a>
+            <a href="index.php" class="logo startpage"><img src="https://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-signet-lightdough_neg.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist"><br>Holzofenpizza<br><p class="claim">garantiert gute Laune</p></a>
             <a class="header-cta-btn" href="https://anfrage.holzofenpizzawagen.ch"><button class="material primary">JETZT ANFRAGEN</button></a>
         </header> 
         <!-- Toolbar -->
         <div class="toolbar startpage"> 
             <!-- Logo for mobile integration in Toolbar ((no used on startpage))
-            <a href="index.php" class="logomobile"><img src="http://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-thumb-lightdough.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist">Holzofenpizza</a>-->
+            <a href="index.php" class="logomobile"><img src="https://api.holzofenpizzawagen.ch/pizza/assets/holzofenpizzawagen-thumb-lightdough.svg" alt="Logo - Abstrakte Zeichnung des Pizzaofens" title="Logo Holzofenpizza Biberist">Holzofenpizza</a>-->
             <!-- <hr class="divider headerdivider" />-->
             <!-- Hamburger icon -->
             <input class="side-menu" type="checkbox" id="side-menu"/>
