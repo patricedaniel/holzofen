@@ -1,6 +1,7 @@
 import { Component, Renderer2, ViewEncapsulation } from '@angular/core';
 import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { BookedDate } from './models/class/booked-date';
 import { Booking } from './models/class/booking';
 import { DirectusBookingPublic } from './models/responses/booking';
 import { BookingService } from './services/booking.service';
@@ -16,13 +17,19 @@ export class AppComponent {
   title = 'Unverbindliche Anfrage';
   subTitle = 'Details zum Anlass'
   booking = new Booking()
-  bookedDates: Record<number, Array<number>> = {}
+  bookedDates: Array<BookedDate> = []
   snackBar: any;
 
+  constructor(private bookingService: BookingService, private renderer: Renderer2, private matSnackBar: MatSnackBar) {
+    this.loadAppointments()
+    this.loadAbsences()
+    // Activate faker for Testdata 
+    // this.faker()
+  }
 
   dateFilter: MatCalendarCellClassFunction<Date> = (cellDate, view) => {
     if (view === 'month') {
-      let datesOfMonth = this.bookedDates[cellDate.getMonth()]
+      let datesOfMonth = this.getBookedDates(cellDate.getFullYear(), cellDate.getMonth())
       if (datesOfMonth != undefined && datesOfMonth.includes(cellDate.getDate())) {
         return 'disabled-class'
       }
@@ -30,11 +37,15 @@ export class AppComponent {
     return '';
   };
 
-  constructor(private bookingService: BookingService, private renderer: Renderer2, private matSnackBar: MatSnackBar) {
-    this.loadAppointments()
-    this.loadAbsences()
-    // Activate faker for Testdata 
-    // this.faker()
+  private getBookedDates(year:number, month:number) : Array<number> {
+    let bookedDays: number[] = []
+    for (let bookedDate of this.bookedDates) {
+      if (bookedDate.month == month && bookedDate.year == year) {
+        if (bookedDate.day != 0 && !bookedDays.includes(bookedDate.day))
+          bookedDays.push(bookedDate.day)
+      }
+    }
+    return bookedDays
   }
 
   //makes fake data
@@ -70,19 +81,18 @@ export class AppComponent {
     this.bookingService.getAllActiveReservations().subscribe((result: DirectusBookingPublic) => {
       for (let date of result.data) {
         let parsedDate = new Date(date.info_datum);
-        let month = parsedDate.getMonth()
-        let day = parsedDate.getDate()
+        let bookedDate = new BookedDate()
+        bookedDate.year = parsedDate.getFullYear()
+        bookedDate.month = parsedDate.getMonth()
+        bookedDate.day = parsedDate.getDate()
         let isTwoDay = date.info_anzahl_tage
-        if (this.bookedDates[month] == null) {
-          this.bookedDates[month] = [day]
-          if (isTwoDay) {
-            this.bookedDates[month].push(day + 1)
-          }
-        } else {
-          this.bookedDates[month].push(day)
-          if (isTwoDay) {
-            this.bookedDates[month].push(day + 1)
-          }
+        this.bookedDates.push(bookedDate)
+        if (isTwoDay) {
+          let bookedDate = new BookedDate()
+            bookedDate.year = parsedDate.getFullYear()
+            bookedDate.month = parsedDate.getMonth()
+            bookedDate.day = parsedDate.getDate()+1
+            this.bookedDates.push(bookedDate)
         }
       }
     })
@@ -93,15 +103,13 @@ export class AppComponent {
     this.bookingService.getAllAbsences().subscribe((result: DirectusBookingPublic) => {
       for (let date of result.data) {
         for (var arr = [], dt = new Date(date.absence_start); dt <= new Date(date.absence_end); dt.setDate(dt.getDate() + 1)) {
-          arr.push(new Date(dt));
+          //arr.push(new Date(dt));
           let parsedDate = new Date(dt);
-          let month = parsedDate.getMonth()
-          let day = parsedDate.getDate()
-          if (this.bookedDates[month] == null) {
-            this.bookedDates[month] = [day]
-          } else {
-            this.bookedDates[month].push(day)
-          }
+          let bookedDate = new BookedDate()
+          bookedDate.year = parsedDate.getFullYear()
+          bookedDate.month = parsedDate.getMonth()
+          bookedDate.day = parsedDate.getDate()
+          this.bookedDates.push(bookedDate)
         }
       }
     })
