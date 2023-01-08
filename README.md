@@ -19,7 +19,7 @@ ___
 1. See the preview on `http://localhost:4200/`
 
 ___
-On MacOS Monterey an later, PHP is not anymore installed by default. Follow the following steps to install php and run the website locally.
+On MacOS Monterey, Ventura and later, PHP is not anymore installed by default. Follow this steps to install php and run the website locally…
 1. If not installed on your machine, install Homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 1. Run these three commands in your terminal to add Homebrew to your PATH:
   * `echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /Users/patrice/.zprofile`
