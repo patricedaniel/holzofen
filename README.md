@@ -30,8 +30,8 @@ On MacOS Monterey an later, PHP is not anymore installed by default. Follow the 
 1. Install PHP: `brew install php`
 1. Restart PHP: `brew services restart php`
 1. Do the steps from above to run the Website
-  1. Navigate to: `/holzofen/website`
-  2. Run PHP: `php -S localhost:9000`[^1]
-  3. See the preview on `http://localhost:9000`
+  * Navigate to: `/holzofen/website`
+  * Run PHP: `php -S localhost:9000`
+  * See the preview on `http://localhost:9000`
 
     
