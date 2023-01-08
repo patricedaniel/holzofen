@@ -26,7 +26,7 @@ On MacOS Monterey, Ventura and later, PHP is not anymore installed by default. F
   * `echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/patrice/.zprofile`
   * `eval "$(/opt/homebrew/bin/brew shellenv)"`
 3. Test your installation to ensure you have installed brew: `brew --version`
-4. When installing fresh on Ventura, I ran into a few libraries that were missing when completing all the steps below. To make things easier, please simply run this now: `brew install openssl`
+4. When installing fresh on Ventura, install Openssl: `brew install openssl`
 5. Install PHP: `brew install php`
 6. Restart PHP: `brew services restart php`
 7. Do the steps from above to run the Website
