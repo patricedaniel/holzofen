@@ -7,7 +7,7 @@ ___
 
 ## Website
 1. Navigate to: `/holzofen/website`
-2. Run PHP: `php -S localhost:9000`(*)
+2. Run PHP: `php -S localhost:9000`(INFO below)
 3. See the preview on `http://localhost:9000`
 
 ## Booking-Tool (Reservierungsanfragetool)
@@ -19,7 +19,7 @@ ___
 1. See the preview on `http://localhost:4200/`
 
 ___
-(*)On MacOS Monterey, Ventura and later, PHP is not anymore installed by default. Follow this steps to install php and run the website locally…
+(INFO) PHP is bundled with macOS since macOS X (10.0.0). On MacOS Monterey, Ventura and later, PHP is not anymore installed by default. Follow this steps to install php and run the website locally…
 1. If not installed on your machine, install Homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 2. Run these three commands to add Homebrew to your PATH:
   * `echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /Users/patrice/.zprofile`
