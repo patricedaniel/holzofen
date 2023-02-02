@@ -22,8 +22,8 @@ ___
 (INFO) PHP is bundled with macOS since macOS X (10.0.0). On MacOS Monterey, Ventura and later, PHP is not anymore installed by default. Follow this steps to install php and run the website locally…
 1. If not installed on your machine, install Homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 2. Run these three commands to add Homebrew to your PATH:
-  * `echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /Users/patrice/.zprofile`
-  * `echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/patrice/.zprofile`
+  * `echo '# Set PATH, MANPATH, etc., for Homebrew.' >> ~/.zprofile`
+  * `echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile`
   * `eval "$(/opt/homebrew/bin/brew shellenv)"`
 3. Test your installation to ensure you have installed brew: `brew --version`
 4. When installing fresh on Ventura, install Openssl: `brew install openssl`
