@@ -17,6 +17,9 @@
         <!-- Scripts -->
         <!--<script src=“rsrc/scripts/meinScript.js“></script> -->
         <script language="JavaScript" src="scripts/gen_validatorv31.js" type="text/javascript"></script>
+        <!--Stuff for reCaptcha -->
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         
         <title>Holzofenpizzawagen</title>
 
@@ -79,6 +82,7 @@
                     <textarea type="text" name="message" id="message" class="material-textarea"></textarea>
                     <label for="message">Ihre Nachricht</label>
                 </div>
+                <div class="g-recaptcha" data-sitekey="MYSECRET" style="display: flex; justify-content: center; margin-bottom: 48px;"></div>
                 <button class="material primary" type="submit">Absenden</button>
             </form>
             <script language="JavaScript">
@@ -104,5 +108,17 @@
             <img src="Bildtitel.jpg" alt="mehr Informationen zum Bild" title="das wird angezeigt wenn man mit der Maus drüberfährt">
             -->
         </footer>
+
+        <script language="JavaScript">
+            $('form').submit(function(event) {
+            var captchaResponse = grecaptcha.getResponse();
+            if(captchaResponse.length == 0) {
+                // The reCAPTCHA was not completed correctly
+                alert('Bitte verifiziere, dass du kein Roboter bist!');
+                event.preventDefault(); // Only prevent form submission if the reCAPTCHA is not completed
+            }
+            });
+        </script>
+
     </body>
 </html>
